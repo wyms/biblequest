@@ -23,7 +23,7 @@ An engaging, interactive web-based trivia game that tests and expands players' k
 
 ## Live Demo
 
-Visit the live game: [Bible Quest on GitHub Pages](https://yourusername.github.io/bible)
+Visit the live game: [Bible Quest on GitHub Pages](https://wyms.github.io/bible)
 
 *(Update the URL above after deploying to GitHub Pages)*
 
