@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quest - Interactive Bible Trivia</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1a2847;
+            --deep-blue: #2c3e6f;
+            --gold: #d4af37;
+            --gold-light: #f0d878;
+            --cream: #faf8f3;
+            --cream-dark: #f0ece1;
+            --green: #4caf50;
+            --red: #f44336;
+            --shadow: rgba(26, 40, 71, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Crimson Text', serif;
+            color: var(--navy);
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px var(--shadow);
+            overflow: hidden;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--deep-blue) 100%);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(212, 175, 55, 0.1) 35px, rgba(212, 175, 55, 0.1) 70px);
+            pointer-events: none;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            color: var(--gold-light);
+            font-size: 1.2em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 40px 30px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .welcome-screen {
+            text-align: center;
+        }
+
+        .welcome-screen h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .welcome-screen p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .difficulty-selector {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .difficulty-btn {
+            flex: 1;
+            min-width: 150px;
+            max-width: 200px;
+            padding: 20px;
+            border: 3px solid var(--navy);
+            background: white;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            font-size: 1em;
+            font-weight: 600;
+        }
+
+        .difficulty-btn:hover {
+            background: var(--navy);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow);
+        }
+
+        .difficulty-btn.selected {
+            background: var(--navy);
+            color: white;
+            border-color: var(--gold);
+        }
+
+        .difficulty-btn .label {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .difficulty-btn .description {
+            font-size: 0.85em;
+            opacity: 0.8;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .question-screen {
+            animation: slideIn 0.5s ease-in;
+        }
+
+        .score-progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--cream);
+            border-radius: 15px;
+        }
+
+        .score {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .progress {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        .question-card {
+            background: var(--cream);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .question-text {
+            font-size: 1.5em;
+            color: var(--navy);
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .difficulty-badge.easy {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        .difficulty-badge.medium {
+            background: #fff9c4;
+            color: #f57f17;
+        }
+
+        .difficulty-badge.hard {
+            background: #ffccbc;
+            color: #d84315;
+        }
+
+        .options {
+            display: grid;
+            gap: 15px;
+        }
+
+        .option-btn {
+            padding: 20px;
+            border: 3px solid var(--navy);
+            background: white;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1em;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            background: var(--cream);
+            transform: translateX(5px);
+            border-color: var(--gold);
+        }
+
+        .option-btn:disabled {
+            cursor: not-allowed;
+        }
+
+        .option-btn .option-letter {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--navy);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .option-btn.correct {
+            background: var(--green);
+            border-color: var(--green);
+            color: white;
+            animation: pulse 0.5s ease-in;
+        }
+
+        .option-btn.correct .option-letter {
+            background: white;
+            color: var(--green);
+        }
+
+        .option-btn.incorrect {
+            background: var(--red);
+            border-color: var(--red);
+            color: white;
+            animation: shake 0.5s ease-in;
+        }
+
+        .option-btn.incorrect .option-letter {
+            background: white;
+            color: var(--red);
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .feedback-screen {
+            text-align: center;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .feedback-icon {
+            font-size: 5em;
+            margin-bottom: 20px;
+        }
+
+        .feedback-message {
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .feedback-message.correct {
+            color: var(--green);
+        }
+
+        .feedback-message.incorrect {
+            color: var(--red);
+        }
+
+        .scripture-reference {
+            background: var(--cream);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid var(--gold);
+        }
+
+        .scripture-reference .label {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .scripture-reference .text {
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .results-screen {
+            text-align: center;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .results-screen h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .final-score {
+            font-size: 4em;
+            font-weight: 700;
+            color: var(--gold);
+            margin: 20px 0;
+        }
+
+        .score-breakdown {
+            background: var(--cream);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .score-breakdown h3 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            color: #666;
+        }
+
+        .stat-value {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 1.1em;
+        }
+
+        .performance-message {
+            font-size: 1.3em;
+            color: #666;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--navy);
+            border: 3px solid var(--navy);
+            padding: 15px 40px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            margin: 10px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--navy);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .header p {
+                font-size: 1em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .welcome-screen h2 {
+                font-size: 2em;
+            }
+
+            .difficulty-selector {
+                flex-direction: column;
+            }
+
+            .difficulty-btn {
+                max-width: 100%;
+            }
+
+            .question-text {
+                font-size: 1.2em;
+            }
+
+            .option-btn {
+                font-size: 1em;
+                padding: 15px;
+            }
+
+            .final-score {
+                font-size: 3em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .score-progress {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // Bible Questions Database
+        const QUESTIONS = [
+            // EASY QUESTIONS
+            { id: 1, text: "How many days did God take to create the world?", options: ["Five", "Six", "Seven", "Eight"], correctAnswer: 1, difficulty: "easy", reference: "Genesis 1:31", category: "Old Testament" },
+            { id: 2, text: "Who built the ark?", options: ["Abraham", "Moses", "Noah", "David"], correctAnswer: 2, difficulty: "easy", reference: "Genesis 6:14", category: "Old Testament" },
+            { id: 3, text: "Who was swallowed by a large fish?", options: ["Jonah", "Daniel", "Elijah", "Samuel"], correctAnswer: 0, difficulty: "easy", reference: "Jonah 1:17", category: "Old Testament" },
+            { id: 4, text: "What did Jesus turn water into at a wedding?", options: ["Milk", "Wine", "Juice", "Oil"], correctAnswer: 1, difficulty: "easy", reference: "John 2:9", category: "Gospels" },
+            { id: 5, text: "How many apostles did Jesus choose?", options: ["Ten", "Eleven", "Twelve", "Thirteen"], correctAnswer: 2, difficulty: "easy", reference: "Matthew 10:1-4", category: "Gospels" },
+            { id: 6, text: "Who was the first man created by God?", options: ["Adam", "Abel", "Cain", "Seth"], correctAnswer: 0, difficulty: "easy", reference: "Genesis 2:7", category: "Old Testament" },
+            { id: 7, text: "In which city was Jesus born?", options: ["Nazareth", "Jerusalem", "Bethlehem", "Jericho"], correctAnswer: 2, difficulty: "easy", reference: "Matthew 2:1", category: "Gospels" },
+            { id: 8, text: "What was the sign of God's covenant with Noah?", options: ["A star", "A rainbow", "A dove", "A cloud"], correctAnswer: 1, difficulty: "easy", reference: "Genesis 9:13", category: "Old Testament" },
+            { id: 9, text: "Who betrayed Jesus for thirty pieces of silver?", options: ["Peter", "John", "Judas", "Thomas"], correctAnswer: 2, difficulty: "easy", reference: "Matthew 26:15", category: "Gospels" },
+            { id: 10, text: "How many books are in the New Testament?", options: ["25", "26", "27", "28"], correctAnswer: 2, difficulty: "easy", reference: "New Testament Structure", category: "General" },
+            { id: 11, text: "Who was the first woman?", options: ["Sarah", "Eve", "Mary", "Ruth"], correctAnswer: 1, difficulty: "easy", reference: "Genesis 3:20", category: "Old Testament" },
+            { id: 12, text: "What did David use to defeat Goliath?", options: ["A sword", "A spear", "A sling and stone", "An arrow"], correctAnswer: 2, difficulty: "easy", reference: "1 Samuel 17:49-50", category: "Old Testament" },
+            { id: 13, text: "How many commandments did God give Moses?", options: ["Seven", "Eight", "Nine", "Ten"], correctAnswer: 3, difficulty: "easy", reference: "Exodus 20:1-17", category: "Old Testament" },
+            { id: 14, text: "Who led the Israelites out of Egypt?", options: ["Abraham", "Moses", "Joshua", "Aaron"], correctAnswer: 1, difficulty: "easy", reference: "Exodus 3:10", category: "Old Testament" },
+            { id: 15, text: "Where was Jesus baptized?", options: ["Red Sea", "Dead Sea", "Jordan River", "Sea of Galilee"], correctAnswer: 2, difficulty: "easy", reference: "Matthew 3:13", category: "Gospels" },
+            { id: 16, text: "What did Jesus multiply to feed 5,000 people?", options: ["Bread and fish", "Bread and wine", "Meat and vegetables", "Fruit and nuts"], correctAnswer: 0, difficulty: "easy", reference: "Matthew 14:17-21", category: "Gospels" },
+            { id: 17, text: "On which day did God rest?", options: ["Fifth", "Sixth", "Seventh", "Eighth"], correctAnswer: 2, difficulty: "easy", reference: "Genesis 2:2", category: "Old Testament" },
+            { id: 18, text: "What was Jesus's occupation before his ministry?", options: ["Fisherman", "Carpenter", "Shepherd", "Tax collector"], correctAnswer: 1, difficulty: "easy", reference: "Mark 6:3", category: "Gospels" },
+
+            // MEDIUM QUESTIONS
+            { id: 19, text: "Which disciple walked on water with Jesus?", options: ["John", "Peter", "Andrew", "James"], correctAnswer: 1, difficulty: "medium", reference: "Matthew 14:29", category: "Gospels" },
+            { id: 20, text: "How many plagues did God send on Egypt?", options: ["Seven", "Eight", "Nine", "Ten"], correctAnswer: 3, difficulty: "medium", reference: "Exodus 7-12", category: "Old Testament" },
+            { id: 21, text: "What was Paul's name before his conversion?", options: ["Silas", "Saul", "Samuel", "Solomon"], correctAnswer: 1, difficulty: "medium", reference: "Acts 13:9", category: "New Testament" },
+            { id: 22, text: "Who was thrown into a den of lions?", options: ["David", "Daniel", "Elijah", "Ezekiel"], correctAnswer: 1, difficulty: "medium", reference: "Daniel 6:16", category: "Old Testament" },
+            { id: 23, text: "How many days did Jesus fast in the wilderness?", options: ["30", "40", "50", "60"], correctAnswer: 1, difficulty: "medium", reference: "Matthew 4:2", category: "Gospels" },
+            { id: 24, text: "Who was sold into slavery by his brothers?", options: ["Jacob", "Isaac", "Joseph", "Benjamin"], correctAnswer: 2, difficulty: "medium", reference: "Genesis 37:28", category: "Old Testament" },
+            { id: 25, text: "What was the name of Abraham's wife?", options: ["Rachel", "Rebekah", "Sarah", "Ruth"], correctAnswer: 2, difficulty: "medium", reference: "Genesis 17:15", category: "Old Testament" },
+            { id: 26, text: "Who replaced Judas Iscariot as an apostle?", options: ["Barnabas", "Matthias", "Silas", "Timothy"], correctAnswer: 1, difficulty: "medium", reference: "Acts 1:26", category: "New Testament" },
+            { id: 27, text: "What was the occupation of Luke?", options: ["Fisherman", "Tax collector", "Physician", "Tentmaker"], correctAnswer: 2, difficulty: "medium", reference: "Colossians 4:14", category: "New Testament" },
+            { id: 28, text: "Who was the first Christian martyr?", options: ["Paul", "Peter", "Stephen", "James"], correctAnswer: 2, difficulty: "medium", reference: "Acts 7:59-60", category: "New Testament" },
+            { id: 29, text: "How many people were saved in Noah's ark?", options: ["Six", "Seven", "Eight", "Nine"], correctAnswer: 2, difficulty: "medium", reference: "1 Peter 3:20", category: "Old Testament" },
+            { id: 30, text: "Who interpreted Pharaoh's dreams in Egypt?", options: ["Daniel", "Joseph", "Moses", "Aaron"], correctAnswer: 1, difficulty: "medium", reference: "Genesis 41:15-16", category: "Old Testament" },
+            { id: 31, text: "What did Jesus ride into Jerusalem on Palm Sunday?", options: ["A horse", "A donkey", "A camel", "He walked"], correctAnswer: 1, difficulty: "medium", reference: "Matthew 21:7", category: "Gospels" },
+            { id: 32, text: "How many books did Paul write?", options: ["11", "12", "13", "14"], correctAnswer: 2, difficulty: "medium", reference: "New Testament Structure", category: "New Testament" },
+            { id: 33, text: "Who was the mother of John the Baptist?", options: ["Mary", "Martha", "Elizabeth", "Anna"], correctAnswer: 2, difficulty: "medium", reference: "Luke 1:13", category: "Gospels" },
+            { id: 34, text: "What was Matthew's occupation before following Jesus?", options: ["Fisherman", "Tax collector", "Carpenter", "Shepherd"], correctAnswer: 1, difficulty: "medium", reference: "Matthew 9:9", category: "Gospels" },
+            { id: 35, text: "On what island was John when he wrote Revelation?", options: ["Cyprus", "Crete", "Malta", "Patmos"], correctAnswer: 3, difficulty: "medium", reference: "Revelation 1:9", category: "New Testament" },
+            { id: 36, text: "Who was the oldest man in the Bible?", options: ["Noah", "Adam", "Methuselah", "Abraham"], correctAnswer: 2, difficulty: "medium", reference: "Genesis 5:27", category: "Old Testament" },
+            { id: 37, text: "How many stones did David pick up before fighting Goliath?", options: ["Three", "Four", "Five", "Six"], correctAnswer: 2, difficulty: "medium", reference: "1 Samuel 17:40", category: "Old Testament" },
+            { id: 38, text: "Which Gospel was written first?", options: ["Matthew", "Mark", "Luke", "John"], correctAnswer: 1, difficulty: "medium", reference: "Biblical Scholarship", category: "Gospels" },
+
+            // HARD QUESTIONS
+            { id: 39, text: "What were the names of Moses' parents?", options: ["Amram and Jochebed", "Jacob and Rachel", "Elkanah and Hannah", "Zacharias and Elizabeth"], correctAnswer: 0, difficulty: "hard", reference: "Exodus 6:20", category: "Old Testament" },
+            { id: 40, text: "How many people did Gideon take to battle against the Midianites?", options: ["100", "200", "300", "400"], correctAnswer: 2, difficulty: "hard", reference: "Judges 7:7", category: "Old Testament" },
+            { id: 41, text: "What was the name of the centurion whose servant Jesus healed?", options: ["Cornelius", "Julius", "We are not told", "Marcus"], correctAnswer: 2, difficulty: "hard", reference: "Matthew 8:5-13", category: "Gospels" },
+            { id: 42, text: "How old was Joseph when he was sold into slavery?", options: ["15", "16", "17", "18"], correctAnswer: 2, difficulty: "hard", reference: "Genesis 37:2", category: "Old Testament" },
+            { id: 43, text: "Which prophet was taken to heaven in a whirlwind?", options: ["Elijah", "Elisha", "Enoch", "Isaiah"], correctAnswer: 0, difficulty: "hard", reference: "2 Kings 2:11", category: "Old Testament" },
+            { id: 44, text: "What was the name of the tax collector Jesus called from Jericho?", options: ["Matthew", "Zacchaeus", "Levi", "Nicodemus"], correctAnswer: 1, difficulty: "hard", reference: "Luke 19:2", category: "Gospels" },
+            { id: 45, text: "How many years did the Israelites wander in the wilderness?", options: ["30", "40", "50", "60"], correctAnswer: 1, difficulty: "hard", reference: "Numbers 14:33", category: "Old Testament" },
+            { id: 46, text: "What were the names of Job's three friends?", options: ["Eliphaz, Bildad, Zophar", "Shadrach, Meshach, Abednego", "Hananiah, Mishael, Azariah", "Peter, James, John"], correctAnswer: 0, difficulty: "hard", reference: "Job 2:11", category: "Old Testament" },
+            { id: 47, text: "How many chapters are in the book of Psalms?", options: ["120", "130", "140", "150"], correctAnswer: 3, difficulty: "hard", reference: "Book of Psalms", category: "Old Testament" },
+            { id: 48, text: "What was the name of Ruth's mother-in-law?", options: ["Leah", "Rachel", "Naomi", "Deborah"], correctAnswer: 2, difficulty: "hard", reference: "Ruth 1:2", category: "Old Testament" },
+            { id: 49, text: "How many days did Lazarus lie in the tomb before Jesus raised him?", options: ["Two", "Three", "Four", "Five"], correctAnswer: 2, difficulty: "hard", reference: "John 11:39", category: "Gospels" },
+            { id: 50, text: "Who was the mother of Samuel?", options: ["Sarah", "Rebekah", "Rachel", "Hannah"], correctAnswer: 3, difficulty: "hard", reference: "1 Samuel 1:20", category: "Old Testament" },
+            { id: 51, text: "How many years did it take Solomon to build the temple?", options: ["Five", "Six", "Seven", "Eight"], correctAnswer: 2, difficulty: "hard", reference: "1 Kings 6:38", category: "Old Testament" },
+            { id: 52, text: "What was the name of the servant girl who recognized Peter after Jesus's arrest?", options: ["Mary", "Martha", "Rhoda", "We are not told"], correctAnswer: 3, difficulty: "hard", reference: "Matthew 26:69", category: "Gospels" },
+            { id: 53, text: "How many sons did Jacob have?", options: ["Ten", "Eleven", "Twelve", "Thirteen"], correctAnswer: 2, difficulty: "hard", reference: "Genesis 35:22", category: "Old Testament" },
+            { id: 54, text: "What was Paul's profession?", options: ["Fisherman", "Tentmaker", "Physician", "Scribe"], correctAnswer: 1, difficulty: "hard", reference: "Acts 18:3", category: "New Testament" },
+            { id: 55, text: "How many times did Peter deny Jesus?", options: ["One", "Two", "Three", "Four"], correctAnswer: 2, difficulty: "hard", reference: "Matthew 26:34", category: "Gospels" },
+            { id: 56, text: "In what language was most of the Old Testament originally written?", options: ["Hebrew", "Aramaic", "Greek", "Latin"], correctAnswer: 0, difficulty: "hard", reference: "Biblical Scholarship", category: "General" },
+        ];
+
+        function BibleQuestApp() {
+            const [gameState, setGameState] = useState('welcome'); // welcome, playing, feedback, results
+            const [difficulty, setDifficulty] = useState(null);
+            const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+            const [score, setScore] = useState(0);
+            const [selectedAnswer, setSelectedAnswer] = useState(null);
+            const [questions, setQuestions] = useState([]);
+            const [answeredQuestions, setAnsweredQuestions] = useState([]);
+
+            const startGame = () => {
+                if (!difficulty) return;
+
+                // Filter questions by difficulty
+                const filteredQuestions = QUESTIONS.filter(q => q.difficulty === difficulty);
+
+                // Shuffle questions
+                const shuffled = [...filteredQuestions].sort(() => Math.random() - 0.5);
+
+                // Select 10 questions
+                const selectedQuestions = shuffled.slice(0, Math.min(10, shuffled.length));
+
+                setQuestions(selectedQuestions);
+                setCurrentQuestionIndex(0);
+                setScore(0);
+                setAnsweredQuestions([]);
+                setGameState('playing');
+            };
+
+            const handleAnswerClick = (answerIndex) => {
+                if (selectedAnswer !== null) return; // Already answered
+
+                setSelectedAnswer(answerIndex);
+                const isCorrect = answerIndex === questions[currentQuestionIndex].correctAnswer;
+
+                if (isCorrect) {
+                    setScore(score + 1);
+                }
+
+                setAnsweredQuestions([...answeredQuestions, {
+                    question: questions[currentQuestionIndex],
+                    selectedAnswer: answerIndex,
+                    isCorrect
+                }]);
+
+                // Show feedback after a brief delay
+                setTimeout(() => {
+                    setGameState('feedback');
+                }, 1000);
+            };
+
+            const nextQuestion = () => {
+                setSelectedAnswer(null);
+
+                if (currentQuestionIndex < questions.length - 1) {
+                    setCurrentQuestionIndex(currentQuestionIndex + 1);
+                    setGameState('playing');
+                } else {
+                    setGameState('results');
+                }
+            };
+
+            const restartGame = () => {
+                setGameState('welcome');
+                setDifficulty(null);
+                setCurrentQuestionIndex(0);
+                setScore(0);
+                setSelectedAnswer(null);
+                setQuestions([]);
+                setAnsweredQuestions([]);
+            };
+
+            const currentQuestion = questions[currentQuestionIndex];
+            const lastAnswer = answeredQuestions[answeredQuestions.length - 1];
+
+            return (
+                <div className="container">
+                    <div className="header">
+                        <h1>⛪ Bible Quest</h1>
+                        <p>Test Your Knowledge of Scripture</p>
+                    </div>
+
+                    <div className="content">
+                        {gameState === 'welcome' && (
+                            <WelcomeScreen
+                                difficulty={difficulty}
+                                setDifficulty={setDifficulty}
+                                startGame={startGame}
+                            />
+                        )}
+
+                        {gameState === 'playing' && currentQuestion && (
+                            <QuestionScreen
+                                question={currentQuestion}
+                                questionNumber={currentQuestionIndex + 1}
+                                totalQuestions={questions.length}
+                                score={score}
+                                selectedAnswer={selectedAnswer}
+                                handleAnswerClick={handleAnswerClick}
+                            />
+                        )}
+
+                        {gameState === 'feedback' && lastAnswer && (
+                            <FeedbackScreen
+                                isCorrect={lastAnswer.isCorrect}
+                                question={lastAnswer.question}
+                                selectedAnswer={lastAnswer.selectedAnswer}
+                                nextQuestion={nextQuestion}
+                            />
+                        )}
+
+                        {gameState === 'results' && (
+                            <ResultsScreen
+                                score={score}
+                                totalQuestions={questions.length}
+                                difficulty={difficulty}
+                                answeredQuestions={answeredQuestions}
+                                restartGame={restartGame}
+                            />
+                        )}
+                    </div>
+                </div>
+            );
+        }
+
+        function WelcomeScreen({ difficulty, setDifficulty, startGame }) {
+            return (
+                <div className="welcome-screen">
+                    <h2>Welcome to Bible Quest!</h2>
+                    <p>
+                        Test your knowledge of the Bible with engaging trivia questions.
+                        Choose your difficulty level and begin your journey through Scripture.
+                    </p>
+
+                    <div className="difficulty-selector">
+                        <button
+                            className={`difficulty-btn ${difficulty === 'easy' ? 'selected' : ''}`}
+                            onClick={() => setDifficulty('easy')}
+                        >
+                            <span className="label">Easy</span>
+                            <span className="description">Basic Bible knowledge</span>
+                        </button>
+                        <button
+                            className={`difficulty-btn ${difficulty === 'medium' ? 'selected' : ''}`}
+                            onClick={() => setDifficulty('medium')}
+                        >
+                            <span className="label">Medium</span>
+                            <span className="description">Intermediate understanding</span>
+                        </button>
+                        <button
+                            className={`difficulty-btn ${difficulty === 'hard' ? 'selected' : ''}`}
+                            onClick={() => setDifficulty('hard')}
+                        >
+                            <span className="label">Hard</span>
+                            <span className="description">Advanced Scripture study</span>
+                        </button>
+                    </div>
+
+                    <button
+                        className="btn-primary"
+                        onClick={startGame}
+                        disabled={!difficulty}
+                    >
+                        Start Quest
+                    </button>
+                </div>
+            );
+        }
+
+        function QuestionScreen({ question, questionNumber, totalQuestions, score, selectedAnswer, handleAnswerClick }) {
+            return (
+                <div className="question-screen">
+                    <div className="score-progress">
+                        <div className="score">Score: {score}/{totalQuestions}</div>
+                        <div className="progress">Question {questionNumber} of {totalQuestions}</div>
+                    </div>
+
+                    <div className="question-card">
+                        <div className={`difficulty-badge ${question.difficulty}`}>
+                            {question.difficulty}
+                        </div>
+                        <div className="question-text">{question.text}</div>
+                    </div>
+
+                    <div className="options">
+                        {question.options.map((option, index) => {
+                            const isSelected = selectedAnswer === index;
+                            const isCorrect = index === question.correctAnswer;
+
+                            let className = 'option-btn';
+                            if (selectedAnswer !== null) {
+                                if (isSelected && isCorrect) className += ' correct';
+                                else if (isSelected && !isCorrect) className += ' incorrect';
+                                else if (isCorrect) className += ' correct';
+                            }
+
+                            return (
+                                <button
+                                    key={index}
+                                    className={className}
+                                    onClick={() => handleAnswerClick(index)}
+                                    disabled={selectedAnswer !== null}
+                                >
+                                    <span className="option-letter">{String.fromCharCode(65 + index)}</span>
+                                    <span>{option}</span>
+                                </button>
+                            );
+                        })}
+                    </div>
+                </div>
+            );
+        }
+
+        function FeedbackScreen({ isCorrect, question, selectedAnswer, nextQuestion }) {
+            return (
+                <div className="feedback-screen">
+                    <div className="feedback-icon">{isCorrect ? '✅' : '❌'}</div>
+                    <div className={`feedback-message ${isCorrect ? 'correct' : 'incorrect'}`}>
+                        {isCorrect ? 'Correct!' : 'Not Quite!'}
+                    </div>
+
+                    {!isCorrect && (
+                        <p style={{marginBottom: '20px', fontSize: '1.1em', color: '#666'}}>
+                            The correct answer was: <strong>{question.options[question.correctAnswer]}</strong>
+                        </p>
+                    )}
+
+                    <div className="scripture-reference">
+                        <div className="label">Scripture Reference</div>
+                        <div className="text">{question.reference}</div>
+                    </div>
+
+                    <button className="btn-primary" onClick={nextQuestion}>
+                        {isCorrect ? 'Continue' : 'Next Question'}
+                    </button>
+                </div>
+            );
+        }
+
+        function ResultsScreen({ score, totalQuestions, difficulty, answeredQuestions, restartGame }) {
+            const percentage = Math.round((score / totalQuestions) * 100);
+
+            let performanceMessage = '';
+            if (percentage === 100) {
+                performanceMessage = 'Perfect! You are a true Bible scholar!';
+            } else if (percentage >= 80) {
+                performanceMessage = 'Excellent work! Your knowledge is impressive!';
+            } else if (percentage >= 60) {
+                performanceMessage = 'Good job! Keep studying the Word!';
+            } else if (percentage >= 40) {
+                performanceMessage = 'Not bad! There\'s room for growth!';
+            } else {
+                performanceMessage = 'Keep reading! The Bible has so much to teach!';
+            }
+
+            return (
+                <div className="results-screen">
+                    <h2>Quest Complete!</h2>
+                    <div className="final-score">{score}/{totalQuestions}</div>
+                    <div style={{fontSize: '2em', color: '#666', marginBottom: '20px'}}>
+                        {percentage}% Correct
+                    </div>
+                    <div className="performance-message">{performanceMessage}</div>
+
+                    <div className="score-breakdown">
+                        <h3>Score Breakdown</h3>
+                        <div className="stat-row">
+                            <span className="stat-label">Difficulty Level</span>
+                            <span className="stat-value">{difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}</span>
+                        </div>
+                        <div className="stat-row">
+                            <span className="stat-label">Questions Answered</span>
+                            <span className="stat-value">{totalQuestions}</span>
+                        </div>
+                        <div className="stat-row">
+                            <span className="stat-label">Correct Answers</span>
+                            <span className="stat-value">{score}</span>
+                        </div>
+                        <div className="stat-row">
+                            <span className="stat-label">Incorrect Answers</span>
+                            <span className="stat-value">{totalQuestions - score}</span>
+                        </div>
+                        <div className="stat-row">
+                            <span className="stat-label">Accuracy</span>
+                            <span className="stat-value">{percentage}%</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button className="btn-primary" onClick={restartGame}>
+                            Play Again
+                        </button>
+                    </div>
+                </div>
+            );
+        }
+
+        // Render the app
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<BibleQuestApp />);
+    </script>
+</body>
+</html>
