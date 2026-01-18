@@ -29,6 +29,46 @@
             --shadow: rgba(26, 40, 71, 0.1);
         }
 
+        [data-theme='dark'] {
+            --navy: #e8eaf6;
+            --deep-blue: #c5cae9;
+            --gold: #ffd54f;
+            --gold-light: #ffecb3;
+            --cream: #1e1e1e;
+            --cream-dark: #121212;
+            --green: #66bb6a;
+            --red: #ef5350;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme='dark'] body {
+            background: linear-gradient(135deg, #1e1e1e 0%, #121212 100%);
+            color: #e8eaf6;
+        }
+
+        [data-theme='dark'] .container {
+            background: #2a2a2a;
+        }
+
+        [data-theme='dark'] h1, [data-theme='dark'] h2, [data-theme='dark'] h3 {
+            color: var(--navy);
+        }
+
+        [data-theme='dark'] .option-btn {
+            background: #333;
+            color: #e8eaf6;
+        }
+
+        [data-theme='dark'] .difficulty-btn {
+            background: #333;
+            color: #e8eaf6;
+        }
+
+        [data-theme='dark'] .difficulty-btn:hover {
+            background: var(--deep-blue);
+            color: #121212;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
@@ -614,6 +654,10 @@
             // MIRACLES OF JESUS
             { id: 67, text: "What was the name of the man Jesus raised from the dead after four days?", options: ["Lazarus", "Jairus", "Simon", "Nicodemus"], correctAnswer: 0, difficulty: "easy", reference: "John 11:43-44", category: "Miracles of Jesus", verseText: "When he had said these things, he cried out with a loud voice, 'Lazarus, come out.' The man who had died came out.", explanation: "Jesus raised Lazarus from the dead after he had been in the tomb for four days, demonstrating power over death." },
             { id: 68, text: "What did Jesus calm with His words?", options: ["A riot", "A storm", "An earthquake", "A fire"], correctAnswer: 1, difficulty: "easy", reference: "Mark 4:39", category: "Miracles of Jesus", verseText: "And he awoke and rebuked the wind and said to the sea, 'Peace! Be still!' And the wind ceased, and there was a great calm.", explanation: "Jesus calmed a violent storm on the Sea of Galilee with just His words, showing His authority over nature." },
+            { id: 107, text: "How many loaves and fish did Jesus use to feed the 5,000?", options: ["3 loaves, 2 fish", "5 loaves, 2 fish", "7 loaves, 3 fish", "10 loaves, 5 fish"], correctAnswer: 1, difficulty: "easy", reference: "Matthew 14:17", category: "Miracles of Jesus", verseText: "They said to him, 'We have only five loaves here and two fish.'", explanation: "Jesus miraculously fed over 5,000 people with just five loaves of bread and two fish." },
+            { id: 108, text: "What did Jesus do at the wedding in Cana?", options: ["Healed the sick", "Turned water into wine", "Fed the guests", "Raised someone from death"], correctAnswer: 1, difficulty: "easy", reference: "John 2:9", category: "Miracles of Jesus", verseText: "When the master of the feast tasted the water now become wine...", explanation: "Jesus performed His first miracle by turning water into wine at a wedding in Cana." },
+            { id: 109, text: "What happened when Jesus touched the leper?", options: ["Nothing happened", "The leper was healed", "Jesus became sick", "The leper ran away"], correctAnswer: 1, difficulty: "easy", reference: "Matthew 8:3", category: "Miracles of Jesus", verseText: "And Jesus stretched out his hand and touched him, saying, 'I will; be clean.' And immediately his leprosy was cleansed.", explanation: "Jesus healed the leper instantly by touching him and commanding him to be clean." },
+            { id: 110, text: "Who did Jesus heal with just a word from a distance?", options: ["Peter's mother-in-law", "A paralyzed man", "A centurion's servant", "A blind beggar"], correctAnswer: 2, difficulty: "easy", reference: "Matthew 8:13", category: "Miracles of Jesus", verseText: "And to the centurion Jesus said, 'Go; let it be done for you as you have believed.' And the servant was healed at that very moment.", explanation: "Jesus healed the centurion's servant remotely, impressed by the centurion's great faith." },
             { id: 69, text: "How many lepers did Jesus heal, but only one returned to thank Him?", options: ["Five", "Seven", "Ten", "Twelve"], correctAnswer: 2, difficulty: "medium", reference: "Luke 17:12-17", category: "Miracles of Jesus", verseText: "Then Jesus answered, 'Were not ten cleansed? Where are the nine?'", explanation: "Jesus healed ten lepers, but only one, a Samaritan, returned to give thanks and praise God." },
             { id: 70, text: "What did Jesus heal the man at the pool of Bethesda from?", options: ["Blindness", "Leprosy", "Paralysis", "Deafness"], correctAnswer: 2, difficulty: "medium", reference: "John 5:8", category: "Miracles of Jesus", verseText: "Jesus said to him, 'Get up, take up your bed, and walk.' And at once the man was healed.", explanation: "Jesus healed a man who had been paralyzed for 38 years at the pool of Bethesda." },
             { id: 71, text: "What did Jesus use to heal a blind man's eyes?", options: ["Oil", "Water", "Mud and saliva", "Nothing, just words"], correctAnswer: 2, difficulty: "medium", reference: "John 9:6", category: "Miracles of Jesus", verseText: "Having said these things, he spit on the ground and made mud with the saliva. Then he anointed the man's eyes with the mud.", explanation: "Jesus made mud from His saliva and the ground to anoint a blind man's eyes, who then could see." },
@@ -662,6 +706,20 @@
             { id: 106, text: "Which prophet was called while still in his mother's womb?", options: ["Isaiah", "Jeremiah", "Ezekiel", "Samuel"], correctAnswer: 1, difficulty: "hard", reference: "Jeremiah 1:5", category: "Old Testament Prophets", verseText: "Before I formed you in the womb I knew you, and before you were born I consecrated you; I appointed you a prophet to the nations.", explanation: "God told Jeremiah that He had appointed him as a prophet even before he was born." },
         ];
 
+        // Achievement definitions
+        const ACHIEVEMENTS = [
+            { id: 'perfect_score', name: 'Perfect Score', description: '100% on any quiz', icon: '🏆', check: (stats, gameData) => gameData.percentage === 100 },
+            { id: 'speed_demon', name: 'Speed Demon', description: 'Complete a quiz in under 2 minutes', icon: '⚡', check: (stats, gameData) => gameData.timeTaken && gameData.timeTaken < 120 },
+            { id: 'scholar', name: 'Scholar', description: '100 questions answered', icon: '📚', check: (stats) => stats.totalQuestionsAnswered >= 100 },
+            { id: 'dedicated_student', name: 'Dedicated Student', description: 'Play on 5 different days', icon: '🔥', check: (stats) => stats.playDays && stats.playDays.length >= 5 },
+            { id: 'testament_master', name: 'Testament Master', description: 'Perfect score on OT and NT', icon: '📖', check: (stats) => stats.perfectOT && stats.perfectNT },
+            { id: 'century_club', name: 'Century Club', description: '100+ total correct answers', icon: '💯', check: (stats) => stats.totalCorrectAnswers >= 100 },
+            { id: 'category_expert', name: 'Category Expert', description: '90%+ in any category quiz', icon: '⭐', check: (stats, gameData) => gameData.isCategory && gameData.percentage >= 90 },
+            { id: 'streak_master', name: 'Streak Master', description: 'Achieve a 10+ streak', icon: '🌟', check: (stats) => stats.bestStreak >= 10 },
+            { id: 'first_steps', name: 'First Steps', description: 'Complete your first quiz', icon: '👣', check: (stats) => stats.gamesPlayed >= 1 },
+            { id: 'persistent', name: 'Persistent', description: 'Play 10 games', icon: '💪', check: (stats) => stats.gamesPlayed >= 10 }
+        ];
+
         // LocalStorage utility functions
         const STORAGE_KEY = 'bibleQuestData';
 
@@ -675,7 +733,10 @@
             totalPoints: 0,
             lastPlayedDate: null,
             questionHistory: [],
-            achievements: []
+            achievements: [],
+            playDays: [],
+            perfectOT: false,
+            perfectNT: false
         });
 
         const loadStats = () => {
@@ -701,6 +762,7 @@
         function BibleQuestApp() {
             const [gameState, setGameState] = useState('welcome'); // welcome, playing, feedback, results, statistics
             const [difficulty, setDifficulty] = useState(null);
+            const [selectedCategory, setSelectedCategory] = useState('all');
             const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
             const [score, setScore] = useState(0);
             const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -708,30 +770,68 @@
             const [answeredQuestions, setAnsweredQuestions] = useState([]);
             const [stats, setStats] = useState(getDefaultStats());
             const [currentStreak, setCurrentStreak] = useState(0);
+            const [hintsRemaining, setHintsRemaining] = useState(3);
+            const [usedHints, setUsedHints] = useState({ fiftyFifty: false, showCategory: false });
+            const [eliminatedOptions, setEliminatedOptions] = useState([]);
+            const [newAchievements, setNewAchievements] = useState([]);
+            const [darkMode, setDarkMode] = useState(false);
 
-            // Load stats on mount
+            // Load stats and theme on mount
             useEffect(() => {
                 const loadedStats = loadStats();
                 setStats(loadedStats);
                 setCurrentStreak(loadedStats.currentStreak || 0);
+
+                // Load dark mode preference
+                const savedDarkMode = localStorage.getItem('bibleQuestDarkMode') === 'true';
+                setDarkMode(savedDarkMode);
+                document.documentElement.setAttribute('data-theme', savedDarkMode ? 'dark' : 'light');
             }, []);
+
+            const toggleDarkMode = () => {
+                const newDarkMode = !darkMode;
+                setDarkMode(newDarkMode);
+                localStorage.setItem('bibleQuestDarkMode', newDarkMode);
+                document.documentElement.setAttribute('data-theme', newDarkMode ? 'dark' : 'light');
+            };
+
+            // Get unique categories from questions
+            const categories = ['all', ...new Set(QUESTIONS.map(q => q.category))].sort();
 
             const startGame = () => {
                 if (!difficulty) return;
 
-                // Filter questions by difficulty
-                const filteredQuestions = QUESTIONS.filter(q => q.difficulty === difficulty);
+                // Filter questions by difficulty and category
+                let filteredQuestions = QUESTIONS.filter(q => q.difficulty === difficulty);
+
+                if (selectedCategory !== 'all') {
+                    filteredQuestions = filteredQuestions.filter(q => q.category === selectedCategory);
+                }
 
                 // Shuffle questions
                 const shuffled = [...filteredQuestions].sort(() => Math.random() - 0.5);
 
-                // Select 10 questions
-                const selectedQuestions = shuffled.slice(0, Math.min(10, shuffled.length));
+                // Select questions (10 for 'all', 15 for specific category, minimum 5)
+                const questionCount = selectedCategory === 'all' ? 10 : Math.min(15, filteredQuestions.length);
+                const selectedQuestions = shuffled.slice(0, questionCount);
+
+                if (selectedQuestions.length === 0) {
+                    alert('No questions available for this category and difficulty. Please try another combination.');
+                    return;
+                }
+
+                if (selectedQuestions.length < 5) {
+                    alert(`Only ${selectedQuestions.length} question(s) available for this combination. Please try a different category or difficulty to get at least 5 questions.`);
+                    return;
+                }
 
                 setQuestions(selectedQuestions);
                 setCurrentQuestionIndex(0);
                 setScore(0);
                 setAnsweredQuestions([]);
+                setHintsRemaining(3);
+                setUsedHints({ fiftyFifty: false, showCategory: false });
+                setEliminatedOptions([]);
                 setGameState('playing');
             };
 
@@ -762,6 +862,8 @@
 
             const nextQuestion = () => {
                 setSelectedAnswer(null);
+                setUsedHints({ fiftyFifty: false, showCategory: false });
+                setEliminatedOptions([]);
 
                 if (currentQuestionIndex < questions.length - 1) {
                     setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -773,7 +875,53 @@
                 }
             };
 
+            const use5050Hint = () => {
+                if (hintsRemaining <= 0 || usedHints.fiftyFifty || selectedAnswer !== null) return;
+
+                const currentQ = questions[currentQuestionIndex];
+                const correctAnswer = currentQ.correctAnswer;
+
+                // Get incorrect answer indices
+                const incorrectIndices = [0, 1, 2, 3].filter(i => i !== correctAnswer);
+
+                // Randomly select 2 incorrect answers to eliminate
+                const shuffled = incorrectIndices.sort(() => Math.random() - 0.5);
+                const toEliminate = shuffled.slice(0, 2);
+
+                setEliminatedOptions(toEliminate);
+                setUsedHints({ ...usedHints, fiftyFifty: true });
+                setHintsRemaining(hintsRemaining - 1);
+            };
+
+            const useShowCategoryHint = () => {
+                if (hintsRemaining <= 0 || usedHints.showCategory || selectedAnswer !== null) return;
+
+                setUsedHints({ ...usedHints, showCategory: true });
+                setHintsRemaining(hintsRemaining - 1);
+            };
+
+            const useSkipHint = () => {
+                if (hintsRemaining <= 0 || selectedAnswer !== null) return;
+
+                setHintsRemaining(hintsRemaining - 1);
+                // Mark as incorrect for stats
+                setAnsweredQuestions([...answeredQuestions, {
+                    question: questions[currentQuestionIndex],
+                    selectedAnswer: -1,
+                    isCorrect: false
+                }]);
+
+                // Reset streak
+                setCurrentStreak(0);
+
+                // Move to next question
+                nextQuestion();
+            };
+
             const updateGameStats = () => {
+                const percentage = Math.round((score / questions.length) * 100);
+                const today = new Date().toISOString().split('T')[0];
+
                 const newStats = {
                     ...stats,
                     totalQuestionsAnswered: stats.totalQuestionsAnswered + questions.length,
@@ -783,11 +931,34 @@
                     bestStreak: Math.max(stats.bestStreak, currentStreak),
                     currentStreak: currentStreak,
                     lastPlayedDate: new Date().toISOString(),
-                    questionHistory: [...stats.questionHistory, ...questions.map(q => q.id)].slice(-100) // Keep last 100
+                    questionHistory: [...stats.questionHistory, ...questions.map(q => q.id)].slice(-100), // Keep last 100
+                    playDays: stats.playDays?.includes(today) ? stats.playDays : [...(stats.playDays || []), today]
                 };
+
+                // Check for perfect score on OT/NT categories
+                if (percentage === 100 && selectedCategory !== 'all') {
+                    if (selectedCategory === 'Old Testament') newStats.perfectOT = true;
+                    if (selectedCategory === 'New Testament') newStats.perfectNT = true;
+                }
 
                 newStats.overallAccuracy = Math.round((newStats.totalCorrectAnswers / newStats.totalQuestionsAnswered) * 100);
 
+                // Check achievements
+                const gameData = {
+                    percentage,
+                    isCategory: selectedCategory !== 'all',
+                    timeTaken: null // TODO: Add timer tracking
+                };
+
+                const unlockedAchievements = [];
+                ACHIEVEMENTS.forEach(achievement => {
+                    if (!newStats.achievements.includes(achievement.id) && achievement.check(newStats, gameData)) {
+                        newStats.achievements.push(achievement.id);
+                        unlockedAchievements.push(achievement);
+                    }
+                });
+
+                setNewAchievements(unlockedAchievements);
                 setStats(newStats);
                 saveStats(newStats);
             };
@@ -827,6 +998,26 @@
             return (
                 <div className="container">
                     <div className="header">
+                        <button
+                            onClick={toggleDarkMode}
+                            style={{
+                                position: 'absolute',
+                                top: '20px',
+                                right: '20px',
+                                background: 'rgba(255, 255, 255, 0.2)',
+                                border: '2px solid rgba(255, 255, 255, 0.5)',
+                                borderRadius: '50%',
+                                width: '50px',
+                                height: '50px',
+                                fontSize: '1.5em',
+                                cursor: 'pointer',
+                                transition: 'all 0.3s ease',
+                                zIndex: 10
+                            }}
+                            title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                        >
+                            {darkMode ? '☀️' : '🌙'}
+                        </button>
                         <h1>⛪ Bible Quest</h1>
                         <p>Test Your Knowledge of Scripture</p>
                     </div>
@@ -836,6 +1027,9 @@
                             <WelcomeScreen
                                 difficulty={difficulty}
                                 setDifficulty={setDifficulty}
+                                selectedCategory={selectedCategory}
+                                setSelectedCategory={setSelectedCategory}
+                                categories={categories}
                                 startGame={startGame}
                                 viewStatistics={viewStatistics}
                                 stats={stats}
@@ -851,6 +1045,12 @@
                                 currentStreak={currentStreak}
                                 selectedAnswer={selectedAnswer}
                                 handleAnswerClick={handleAnswerClick}
+                                hintsRemaining={hintsRemaining}
+                                usedHints={usedHints}
+                                eliminatedOptions={eliminatedOptions}
+                                use5050Hint={use5050Hint}
+                                useShowCategoryHint={useShowCategoryHint}
+                                useSkipHint={useSkipHint}
                             />
                         )}
 
@@ -872,6 +1072,7 @@
                                 answeredQuestions={answeredQuestions}
                                 stats={stats}
                                 currentStreak={currentStreak}
+                                newAchievements={newAchievements}
                                 restartGame={restartGame}
                                 reviewMistakes={reviewMistakes}
                             />
@@ -888,7 +1089,7 @@
             );
         }
 
-        function WelcomeScreen({ difficulty, setDifficulty, startGame, viewStatistics, stats }) {
+        function WelcomeScreen({ difficulty, setDifficulty, selectedCategory, setSelectedCategory, categories, startGame, viewStatistics, stats }) {
             return (
                 <div className="welcome-screen">
                     <h2>Welcome to Bible Quest!</h2>
@@ -902,6 +1103,31 @@
                             <strong>Your Progress:</strong> {stats.gamesPlayed} games played | {stats.overallAccuracy}% accuracy | Best streak: {stats.bestStreak}
                         </div>
                     )}
+
+                    <div style={{marginBottom: '20px'}}>
+                        <label style={{display: 'block', marginBottom: '10px', fontWeight: '600', color: 'var(--navy)'}}>
+                            Select Category
+                        </label>
+                        <select
+                            value={selectedCategory}
+                            onChange={(e) => setSelectedCategory(e.target.value)}
+                            style={{
+                                width: '100%',
+                                padding: '12px',
+                                fontSize: '1em',
+                                border: '3px solid var(--navy)',
+                                borderRadius: '10px',
+                                background: 'white',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            {categories.map(cat => (
+                                <option key={cat} value={cat}>
+                                    {cat === 'all' ? 'All Categories (10 questions)' : `${cat} (up to 15 questions, min. 5)`}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
 
                     <div className="difficulty-selector">
                         <button
@@ -948,7 +1174,7 @@
             );
         }
 
-        function QuestionScreen({ question, questionNumber, totalQuestions, score, currentStreak, selectedAnswer, handleAnswerClick }) {
+        function QuestionScreen({ question, questionNumber, totalQuestions, score, currentStreak, selectedAnswer, handleAnswerClick, hintsRemaining, usedHints, eliminatedOptions, use5050Hint, useShowCategoryHint, useSkipHint }) {
             return (
                 <div className="question-screen">
                     <div className="score-progress">
@@ -961,10 +1187,66 @@
                         <div className="progress">Question {questionNumber} of {totalQuestions}</div>
                     </div>
 
+                    <div style={{marginBottom: '15px', display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center'}}>
+                        <div style={{fontSize: '0.9em', color: '#666', fontWeight: 'bold', padding: '8px 12px', background: 'var(--cream)', borderRadius: '8px'}}>
+                            Hints: {hintsRemaining}/3
+                        </div>
+                        <button
+                            onClick={use5050Hint}
+                            disabled={hintsRemaining <= 0 || usedHints.fiftyFifty || selectedAnswer !== null}
+                            style={{
+                                padding: '8px 12px',
+                                fontSize: '0.85em',
+                                borderRadius: '8px',
+                                border: '2px solid var(--navy)',
+                                background: usedHints.fiftyFifty ? '#ddd' : 'white',
+                                cursor: (hintsRemaining <= 0 || usedHints.fiftyFifty || selectedAnswer !== null) ? 'not-allowed' : 'pointer',
+                                opacity: (hintsRemaining <= 0 || usedHints.fiftyFifty || selectedAnswer !== null) ? 0.5 : 1
+                            }}
+                        >
+                            50/50
+                        </button>
+                        <button
+                            onClick={useShowCategoryHint}
+                            disabled={hintsRemaining <= 0 || usedHints.showCategory || selectedAnswer !== null}
+                            style={{
+                                padding: '8px 12px',
+                                fontSize: '0.85em',
+                                borderRadius: '8px',
+                                border: '2px solid var(--navy)',
+                                background: usedHints.showCategory ? '#ddd' : 'white',
+                                cursor: (hintsRemaining <= 0 || usedHints.showCategory || selectedAnswer !== null) ? 'not-allowed' : 'pointer',
+                                opacity: (hintsRemaining <= 0 || usedHints.showCategory || selectedAnswer !== null) ? 0.5 : 1
+                            }}
+                        >
+                            Show Category
+                        </button>
+                        <button
+                            onClick={useSkipHint}
+                            disabled={hintsRemaining <= 0 || selectedAnswer !== null}
+                            style={{
+                                padding: '8px 12px',
+                                fontSize: '0.85em',
+                                borderRadius: '8px',
+                                border: '2px solid var(--navy)',
+                                background: 'white',
+                                cursor: (hintsRemaining <= 0 || selectedAnswer !== null) ? 'not-allowed' : 'pointer',
+                                opacity: (hintsRemaining <= 0 || selectedAnswer !== null) ? 0.5 : 1
+                            }}
+                        >
+                            Skip
+                        </button>
+                    </div>
+
                     <div className="question-card">
                         <div className={`difficulty-badge ${question.difficulty}`}>
                             {question.difficulty}
                         </div>
+                        {usedHints.showCategory && (
+                            <div style={{marginBottom: '10px', padding: '8px 12px', background: 'var(--gold-light)', borderRadius: '8px', fontSize: '0.9em', fontWeight: 'bold'}}>
+                                Category: {question.category}
+                            </div>
+                        )}
                         <div className="question-text">{question.text}</div>
                     </div>
 
@@ -972,12 +1254,27 @@
                         {question.options.map((option, index) => {
                             const isSelected = selectedAnswer === index;
                             const isCorrect = index === question.correctAnswer;
+                            const isEliminated = eliminatedOptions.includes(index);
 
                             let className = 'option-btn';
                             if (selectedAnswer !== null) {
                                 if (isSelected && isCorrect) className += ' correct';
                                 else if (isSelected && !isCorrect) className += ' incorrect';
                                 else if (isCorrect) className += ' correct';
+                            }
+
+                            if (isEliminated) {
+                                return (
+                                    <button
+                                        key={index}
+                                        className={className}
+                                        disabled={true}
+                                        style={{opacity: 0.3, textDecoration: 'line-through'}}
+                                    >
+                                        <span className="option-letter">{String.fromCharCode(65 + index)}</span>
+                                        <span>{option}</span>
+                                    </button>
+                                );
                             }
 
                             return (
@@ -1038,7 +1335,7 @@
             );
         }
 
-        function ResultsScreen({ score, totalQuestions, difficulty, answeredQuestions, stats, currentStreak, restartGame, reviewMistakes }) {
+        function ResultsScreen({ score, totalQuestions, difficulty, answeredQuestions, stats, currentStreak, newAchievements, restartGame, reviewMistakes }) {
             const percentage = Math.round((score / totalQuestions) * 100);
             const mistakesCount = answeredQuestions.filter(aq => !aq.isCorrect).length;
 
@@ -1063,6 +1360,17 @@
                         {percentage}% Correct
                     </div>
                     <div className="performance-message">{performanceMessage}</div>
+
+                    {newAchievements && newAchievements.length > 0 && (
+                        <div style={{marginTop: '20px', padding: '20px', background: 'linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%)', borderRadius: '15px', animation: 'pulse 1s ease-in'}}>
+                            <h3 style={{marginBottom: '15px', fontSize: '1.5em'}}>🎉 New Achievement{newAchievements.length > 1 ? 's' : ''} Unlocked!</h3>
+                            {newAchievements.map(achievement => (
+                                <div key={achievement.id} style={{marginBottom: '10px', fontSize: '1.1em'}}>
+                                    <span style={{fontSize: '1.5em'}}>{achievement.icon}</span> <strong>{achievement.name}</strong> - {achievement.description}
+                                </div>
+                            ))}
+                        </div>
+                    )}
 
                     <div className="score-breakdown">
                         <h3>Score Breakdown</h3>
@@ -1117,9 +1425,37 @@
         }
 
         function StatisticsScreen({ stats, goBack }) {
+            const unlockedCount = stats.achievements?.length || 0;
+            const totalAchievements = ACHIEVEMENTS.length;
+
             return (
                 <div className="results-screen">
                     <h2>Your Statistics</h2>
+
+                    <div className="score-breakdown" style={{marginTop: '20px'}}>
+                        <h3>Achievements ({unlockedCount}/{totalAchievements})</h3>
+                        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '10px', marginTop: '15px'}}>
+                            {ACHIEVEMENTS.map(achievement => {
+                                const isUnlocked = stats.achievements?.includes(achievement.id);
+                                return (
+                                    <div
+                                        key={achievement.id}
+                                        style={{
+                                            padding: '15px',
+                                            background: isUnlocked ? 'linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%)' : '#f0f0f0',
+                                            borderRadius: '10px',
+                                            textAlign: 'center',
+                                            opacity: isUnlocked ? 1 : 0.5
+                                        }}
+                                    >
+                                        <div style={{fontSize: '2em', marginBottom: '5px'}}>{achievement.icon}</div>
+                                        <div style={{fontWeight: 'bold', fontSize: '0.9em'}}>{achievement.name}</div>
+                                        <div style={{fontSize: '0.75em', marginTop: '5px'}}>{achievement.description}</div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
 
                     <div className="score-breakdown" style={{marginTop: '30px'}}>
                         <h3>Overall Progress</h3>
