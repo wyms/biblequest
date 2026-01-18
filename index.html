@@ -538,33 +538,33 @@
         // Bible Questions Database
         const QUESTIONS = [
             // EASY QUESTIONS
-            { id: 1, text: "How many days did God take to create the world?", options: ["Five", "Six", "Seven", "Eight"], correctAnswer: 1, difficulty: "easy", reference: "Genesis 1:31", category: "Old Testament" },
-            { id: 2, text: "Who built the ark?", options: ["Abraham", "Moses", "Noah", "David"], correctAnswer: 2, difficulty: "easy", reference: "Genesis 6:14", category: "Old Testament" },
-            { id: 3, text: "Who was swallowed by a large fish?", options: ["Jonah", "Daniel", "Elijah", "Samuel"], correctAnswer: 0, difficulty: "easy", reference: "Jonah 1:17", category: "Old Testament" },
-            { id: 4, text: "What did Jesus turn water into at a wedding?", options: ["Milk", "Wine", "Juice", "Oil"], correctAnswer: 1, difficulty: "easy", reference: "John 2:9", category: "Gospels" },
-            { id: 5, text: "How many apostles did Jesus choose?", options: ["Ten", "Eleven", "Twelve", "Thirteen"], correctAnswer: 2, difficulty: "easy", reference: "Matthew 10:1-4", category: "Gospels" },
-            { id: 6, text: "Who was the first man created by God?", options: ["Adam", "Abel", "Cain", "Seth"], correctAnswer: 0, difficulty: "easy", reference: "Genesis 2:7", category: "Old Testament" },
-            { id: 7, text: "In which city was Jesus born?", options: ["Nazareth", "Jerusalem", "Bethlehem", "Jericho"], correctAnswer: 2, difficulty: "easy", reference: "Matthew 2:1", category: "Gospels" },
-            { id: 8, text: "What was the sign of God's covenant with Noah?", options: ["A star", "A rainbow", "A dove", "A cloud"], correctAnswer: 1, difficulty: "easy", reference: "Genesis 9:13", category: "Old Testament" },
-            { id: 9, text: "Who betrayed Jesus for thirty pieces of silver?", options: ["Peter", "John", "Judas", "Thomas"], correctAnswer: 2, difficulty: "easy", reference: "Matthew 26:15", category: "Gospels" },
-            { id: 10, text: "How many books are in the New Testament?", options: ["25", "26", "27", "28"], correctAnswer: 2, difficulty: "easy", reference: "New Testament Structure", category: "General" },
-            { id: 11, text: "Who was the first woman?", options: ["Sarah", "Eve", "Mary", "Ruth"], correctAnswer: 1, difficulty: "easy", reference: "Genesis 3:20", category: "Old Testament" },
-            { id: 12, text: "What did David use to defeat Goliath?", options: ["A sword", "A spear", "A sling and stone", "An arrow"], correctAnswer: 2, difficulty: "easy", reference: "1 Samuel 17:49-50", category: "Old Testament" },
-            { id: 13, text: "How many commandments did God give Moses?", options: ["Seven", "Eight", "Nine", "Ten"], correctAnswer: 3, difficulty: "easy", reference: "Exodus 20:1-17", category: "Old Testament" },
-            { id: 14, text: "Who led the Israelites out of Egypt?", options: ["Abraham", "Moses", "Joshua", "Aaron"], correctAnswer: 1, difficulty: "easy", reference: "Exodus 3:10", category: "Old Testament" },
-            { id: 15, text: "Where was Jesus baptized?", options: ["Red Sea", "Dead Sea", "Jordan River", "Sea of Galilee"], correctAnswer: 2, difficulty: "easy", reference: "Matthew 3:13", category: "Gospels" },
-            { id: 16, text: "What did Jesus multiply to feed 5,000 people?", options: ["Bread and fish", "Bread and wine", "Meat and vegetables", "Fruit and nuts"], correctAnswer: 0, difficulty: "easy", reference: "Matthew 14:17-21", category: "Gospels" },
-            { id: 17, text: "On which day did God rest?", options: ["Fifth", "Sixth", "Seventh", "Eighth"], correctAnswer: 2, difficulty: "easy", reference: "Genesis 2:2", category: "Old Testament" },
-            { id: 18, text: "What was Jesus's occupation before his ministry?", options: ["Fisherman", "Carpenter", "Shepherd", "Tax collector"], correctAnswer: 1, difficulty: "easy", reference: "Mark 6:3", category: "Gospels" },
+            { id: 1, text: "How many days did God take to create the world?", options: ["Five", "Six", "Seven", "Eight"], correctAnswer: 1, difficulty: "easy", reference: "Genesis 1:31", category: "Old Testament", verseText: "And God saw everything that He had made, and behold, it was very good. And there was evening and there was morning, the sixth day.", explanation: "God created the world in six days and rested on the seventh day, establishing the pattern for the week." },
+            { id: 2, text: "Who built the ark?", options: ["Abraham", "Moses", "Noah", "David"], correctAnswer: 2, difficulty: "easy", reference: "Genesis 6:14", category: "Old Testament", verseText: "Make yourself an ark of gopher wood. Make rooms in the ark, and cover it inside and out with pitch.", explanation: "God instructed Noah to build an ark to save his family and animals from the great flood." },
+            { id: 3, text: "Who was swallowed by a large fish?", options: ["Jonah", "Daniel", "Elijah", "Samuel"], correctAnswer: 0, difficulty: "easy", reference: "Jonah 1:17", category: "Old Testament", verseText: "And the LORD appointed a great fish to swallow up Jonah. And Jonah was in the belly of the fish three days and three nights.", explanation: "Jonah was swallowed by a great fish after trying to flee from God's command to preach to Nineveh." },
+            { id: 4, text: "What did Jesus turn water into at a wedding?", options: ["Milk", "Wine", "Juice", "Oil"], correctAnswer: 1, difficulty: "easy", reference: "John 2:9", category: "Gospels", verseText: "When the master of the feast tasted the water now become wine... the master of the feast called the bridegroom and said to him, 'Everyone serves the good wine first, and when people have drunk freely, then the poor wine. But you have kept the good wine until now.'", explanation: "Jesus performed His first miracle at the wedding in Cana by turning water into wine, revealing His divine glory." },
+            { id: 5, text: "How many apostles did Jesus choose?", options: ["Ten", "Eleven", "Twelve", "Thirteen"], correctAnswer: 2, difficulty: "easy", reference: "Matthew 10:1-4", category: "Gospels", verseText: "And he called to him his twelve disciples and gave them authority over unclean spirits, to cast them out, and to heal every disease and every affliction.", explanation: "Jesus chose twelve apostles to be His closest followers and to spread His teachings throughout the world." },
+            { id: 6, text: "Who was the first man created by God?", options: ["Adam", "Abel", "Cain", "Seth"], correctAnswer: 0, difficulty: "easy", reference: "Genesis 2:7", category: "Old Testament", verseText: "Then the LORD God formed the man of dust from the ground and breathed into his nostrils the breath of life, and the man became a living creature.", explanation: "Adam was the first human being created by God, formed from the dust of the ground." },
+            { id: 7, text: "In which city was Jesus born?", options: ["Nazareth", "Jerusalem", "Bethlehem", "Jericho"], correctAnswer: 2, difficulty: "easy", reference: "Matthew 2:1", category: "Gospels", verseText: "Now after Jesus was born in Bethlehem of Judea in the days of Herod the king, behold, wise men from the east came to Jerusalem.", explanation: "Jesus was born in Bethlehem, fulfilling the Old Testament prophecy about the Messiah's birthplace." },
+            { id: 8, text: "What was the sign of God's covenant with Noah?", options: ["A star", "A rainbow", "A dove", "A cloud"], correctAnswer: 1, difficulty: "easy", reference: "Genesis 9:13", category: "Old Testament", verseText: "I have set my bow in the cloud, and it shall be a sign of the covenant between me and the earth.", explanation: "God placed a rainbow in the sky as a sign of His promise never to destroy the earth with a flood again." },
+            { id: 9, text: "Who betrayed Jesus for thirty pieces of silver?", options: ["Peter", "John", "Judas", "Thomas"], correctAnswer: 2, difficulty: "easy", reference: "Matthew 26:15", category: "Gospels", verseText: "And said, 'What will you give me if I deliver him over to you?' And they paid him thirty pieces of silver.", explanation: "Judas Iscariot betrayed Jesus to the chief priests for thirty pieces of silver, leading to Jesus's arrest and crucifixion." },
+            { id: 10, text: "How many books are in the New Testament?", options: ["25", "26", "27", "28"], correctAnswer: 2, difficulty: "easy", reference: "New Testament Structure", category: "General", verseText: "The New Testament contains 27 books including the four Gospels, Acts, Paul's letters, and Revelation.", explanation: "The New Testament has 27 books, beginning with the four Gospels and ending with Revelation." },
+            { id: 11, text: "Who was the first woman?", options: ["Sarah", "Eve", "Mary", "Ruth"], correctAnswer: 1, difficulty: "easy", reference: "Genesis 3:20", category: "Old Testament", verseText: "The man called his wife's name Eve, because she was the mother of all living.", explanation: "Eve was the first woman, created by God from Adam's rib to be his companion." },
+            { id: 12, text: "What did David use to defeat Goliath?", options: ["A sword", "A spear", "A sling and stone", "An arrow"], correctAnswer: 2, difficulty: "easy", reference: "1 Samuel 17:49-50", category: "Old Testament", verseText: "And David put his hand in his bag and took out a stone and slung it and struck the Philistine on his forehead. The stone sank into his forehead, and he fell on his face to the ground.", explanation: "Young David defeated the giant Goliath with just a sling and a stone, showing that God's power is greater than human strength." },
+            { id: 13, text: "How many commandments did God give Moses?", options: ["Seven", "Eight", "Nine", "Ten"], correctAnswer: 3, difficulty: "easy", reference: "Exodus 20:1-17", category: "Old Testament", verseText: "And God spoke all these words, saying, 'I am the LORD your God... You shall have no other gods before me...'", explanation: "God gave Moses the Ten Commandments on Mount Sinai as a moral and religious code for the Israelites." },
+            { id: 14, text: "Who led the Israelites out of Egypt?", options: ["Abraham", "Moses", "Joshua", "Aaron"], correctAnswer: 1, difficulty: "easy", reference: "Exodus 3:10", category: "Old Testament", verseText: "Come, I will send you to Pharaoh that you may bring my people, the children of Israel, out of Egypt.", explanation: "Moses was chosen by God to lead the Israelites out of slavery in Egypt to the Promised Land." },
+            { id: 15, text: "Where was Jesus baptized?", options: ["Red Sea", "Dead Sea", "Jordan River", "Sea of Galilee"], correctAnswer: 2, difficulty: "easy", reference: "Matthew 3:13", category: "Gospels", verseText: "Then Jesus came from Galilee to the Jordan to John, to be baptized by him.", explanation: "Jesus was baptized by John the Baptist in the Jordan River, marking the beginning of His public ministry." },
+            { id: 16, text: "What did Jesus multiply to feed 5,000 people?", options: ["Bread and fish", "Bread and wine", "Meat and vegetables", "Fruit and nuts"], correctAnswer: 0, difficulty: "easy", reference: "Matthew 14:17-21", category: "Gospels", verseText: "They said to him, 'We have only five loaves here and two fish.' And he said, 'Bring them here to me.'", explanation: "Jesus performed a miracle by multiplying five loaves and two fish to feed over 5,000 people." },
+            { id: 17, text: "On which day did God rest?", options: ["Fifth", "Sixth", "Seventh", "Eighth"], correctAnswer: 2, difficulty: "easy", reference: "Genesis 2:2", category: "Old Testament", verseText: "And on the seventh day God finished his work that he had done, and he rested on the seventh day from all his work that he had done.", explanation: "God rested on the seventh day after creating the world, establishing the Sabbath as a day of rest." },
+            { id: 18, text: "What was Jesus's occupation before his ministry?", options: ["Fisherman", "Carpenter", "Shepherd", "Tax collector"], correctAnswer: 1, difficulty: "easy", reference: "Mark 6:3", category: "Gospels", verseText: "Is not this the carpenter, the son of Mary and brother of James and Joses and Judas and Simon?", explanation: "Jesus worked as a carpenter before beginning His public ministry at age 30." },
 
             // MEDIUM QUESTIONS
-            { id: 19, text: "Which disciple walked on water with Jesus?", options: ["John", "Peter", "Andrew", "James"], correctAnswer: 1, difficulty: "medium", reference: "Matthew 14:29", category: "Gospels" },
-            { id: 20, text: "How many plagues did God send on Egypt?", options: ["Seven", "Eight", "Nine", "Ten"], correctAnswer: 3, difficulty: "medium", reference: "Exodus 7-12", category: "Old Testament" },
-            { id: 21, text: "What was Paul's name before his conversion?", options: ["Silas", "Saul", "Samuel", "Solomon"], correctAnswer: 1, difficulty: "medium", reference: "Acts 13:9", category: "New Testament" },
-            { id: 22, text: "Who was thrown into a den of lions?", options: ["David", "Daniel", "Elijah", "Ezekiel"], correctAnswer: 1, difficulty: "medium", reference: "Daniel 6:16", category: "Old Testament" },
-            { id: 23, text: "How many days did Jesus fast in the wilderness?", options: ["30", "40", "50", "60"], correctAnswer: 1, difficulty: "medium", reference: "Matthew 4:2", category: "Gospels" },
-            { id: 24, text: "Who was sold into slavery by his brothers?", options: ["Jacob", "Isaac", "Joseph", "Benjamin"], correctAnswer: 2, difficulty: "medium", reference: "Genesis 37:28", category: "Old Testament" },
-            { id: 25, text: "What was the name of Abraham's wife?", options: ["Rachel", "Rebekah", "Sarah", "Ruth"], correctAnswer: 2, difficulty: "medium", reference: "Genesis 17:15", category: "Old Testament" },
+            { id: 19, text: "Which disciple walked on water with Jesus?", options: ["John", "Peter", "Andrew", "James"], correctAnswer: 1, difficulty: "medium", reference: "Matthew 14:29", category: "Gospels", verseText: "He said, 'Come.' So Peter got out of the boat and walked on the water and came to Jesus.", explanation: "Peter stepped out in faith and briefly walked on water toward Jesus before doubt caused him to sink." },
+            { id: 20, text: "How many plagues did God send on Egypt?", options: ["Seven", "Eight", "Nine", "Ten"], correctAnswer: 3, difficulty: "medium", reference: "Exodus 7-12", category: "Old Testament", verseText: "The ten plagues included: water to blood, frogs, gnats, flies, livestock disease, boils, hail, locusts, darkness, and death of the firstborn.", explanation: "God sent ten devastating plagues to demonstrate His power and compel Pharaoh to release the Israelites from slavery." },
+            { id: 21, text: "What was Paul's name before his conversion?", options: ["Silas", "Saul", "Samuel", "Solomon"], correctAnswer: 1, difficulty: "medium", reference: "Acts 13:9", category: "New Testament", verseText: "But Saul, who was also called Paul, filled with the Holy Spirit, looked intently at him.", explanation: "Saul was his Hebrew name; after his conversion, he became known by his Roman name, Paul." },
+            { id: 22, text: "Who was thrown into a den of lions?", options: ["David", "Daniel", "Elijah", "Ezekiel"], correctAnswer: 1, difficulty: "medium", reference: "Daniel 6:16", category: "Old Testament", verseText: "Then the king commanded, and Daniel was brought and cast into the den of lions.", explanation: "Daniel was thrown into the lions' den for praying to God, but God shut the lions' mouths and he was unharmed." },
+            { id: 23, text: "How many days did Jesus fast in the wilderness?", options: ["30", "40", "50", "60"], correctAnswer: 1, difficulty: "medium", reference: "Matthew 4:2", category: "Gospels", verseText: "And after fasting forty days and forty nights, he was hungry.", explanation: "Jesus fasted for 40 days in the wilderness before being tempted by Satan, demonstrating His obedience and dependence on God." },
+            { id: 24, text: "Who was sold into slavery by his brothers?", options: ["Jacob", "Isaac", "Joseph", "Benjamin"], correctAnswer: 2, difficulty: "medium", reference: "Genesis 37:28", category: "Old Testament", verseText: "Then Midianite traders passed by. And they drew Joseph up and lifted him out of the pit, and sold him to the Ishmaelites for twenty shekels of silver.", explanation: "Joseph's brothers sold him into slavery out of jealousy, but God used this for good, eventually making Joseph second-in-command of Egypt." },
+            { id: 25, text: "What was the name of Abraham's wife?", options: ["Rachel", "Rebekah", "Sarah", "Ruth"], correctAnswer: 2, difficulty: "medium", reference: "Genesis 17:15", category: "Old Testament", verseText: "And God said to Abraham, 'As for Sarai your wife, you shall not call her name Sarai, but Sarah shall be her name.'", explanation: "God renamed Sarai to Sarah, meaning 'princess,' and promised she would be the mother of nations despite her old age." },
             { id: 26, text: "Who replaced Judas Iscariot as an apostle?", options: ["Barnabas", "Matthias", "Silas", "Timothy"], correctAnswer: 1, difficulty: "medium", reference: "Acts 1:26", category: "New Testament" },
             { id: 27, text: "What was the occupation of Luke?", options: ["Fisherman", "Tax collector", "Physician", "Tentmaker"], correctAnswer: 2, difficulty: "medium", reference: "Colossians 4:14", category: "New Testament" },
             { id: 28, text: "Who was the first Christian martyr?", options: ["Paul", "Peter", "Stephen", "James"], correctAnswer: 2, difficulty: "medium", reference: "Acts 7:59-60", category: "New Testament" },
@@ -598,16 +598,123 @@
             { id: 54, text: "What was Paul's profession?", options: ["Fisherman", "Tentmaker", "Physician", "Scribe"], correctAnswer: 1, difficulty: "hard", reference: "Acts 18:3", category: "New Testament" },
             { id: 55, text: "How many times did Peter deny Jesus?", options: ["One", "Two", "Three", "Four"], correctAnswer: 2, difficulty: "hard", reference: "Matthew 26:34", category: "Gospels" },
             { id: 56, text: "In what language was most of the Old Testament originally written?", options: ["Hebrew", "Aramaic", "Greek", "Latin"], correctAnswer: 0, difficulty: "hard", reference: "Biblical Scholarship", category: "General" },
+
+            // PARABLES & TEACHINGS
+            { id: 57, text: "In the parable of the sower, what does the seed represent?", options: ["Money", "The Word of God", "Faith", "Love"], correctAnswer: 1, difficulty: "easy", reference: "Luke 8:11", category: "Parables & Teachings", verseText: "Now the parable is this: The seed is the word of God.", explanation: "Jesus explained that the seed scattered by the sower represents the Word of God being spread to different types of hearts." },
+            { id: 58, text: "In the parable of the Good Samaritan, who helped the injured man?", options: ["A priest", "A Levite", "A Samaritan", "A Roman"], correctAnswer: 2, difficulty: "easy", reference: "Luke 10:33", category: "Parables & Teachings", verseText: "But a Samaritan, as he journeyed, came to where he was, and when he saw him, he had compassion.", explanation: "Despite cultural hostility between Jews and Samaritans, it was a Samaritan who showed mercy and helped the injured man." },
+            { id: 59, text: "What did the prodigal son waste his inheritance on?", options: ["Investments", "Riotous living", "Building a house", "Education"], correctAnswer: 1, difficulty: "medium", reference: "Luke 15:13", category: "Parables & Teachings", verseText: "And there he squandered his property in reckless living.", explanation: "The younger son wasted his entire inheritance on wild and reckless living before returning home repentant." },
+            { id: 60, text: "In the parable of the talents, how many talents did the master give to the first servant?", options: ["Three", "Five", "Seven", "Ten"], correctAnswer: 1, difficulty: "medium", reference: "Matthew 25:15", category: "Parables & Teachings", verseText: "To one he gave five talents, to another two, to another one, to each according to his ability.", explanation: "The master distributed talents based on each servant's ability: five to one, two to another, and one to the third." },
+            { id: 61, text: "Who is our neighbor according to Jesus's teaching?", options: ["Only fellow believers", "Only family members", "Anyone in need", "Only people we like"], correctAnswer: 2, difficulty: "easy", reference: "Luke 10:36-37", category: "Parables & Teachings", verseText: "Which of these three, do you think, proved to be a neighbor to the man who fell among the robbers? He said, 'The one who showed him mercy.'", explanation: "Jesus taught that our neighbor is anyone in need whom we have the opportunity to help." },
+            { id: 62, text: "In the parable of the lost sheep, how many sheep did the shepherd have?", options: ["Fifty", "Seventy", "One hundred", "One hundred and twenty"], correctAnswer: 2, difficulty: "medium", reference: "Luke 15:4", category: "Parables & Teachings", verseText: "What man of you, having a hundred sheep, if he has lost one of them, does not leave the ninety-nine in the open country, and go after the one that is lost, until he finds it?", explanation: "The shepherd left 99 sheep to find the one that was lost, showing God's love for each individual person." },
+            { id: 63, text: "What did Jesus say is the greatest commandment?", options: ["Do not steal", "Love the Lord your God", "Honor your parents", "Do not murder"], correctAnswer: 1, difficulty: "easy", reference: "Matthew 22:37-38", category: "Parables & Teachings", verseText: "You shall love the Lord your God with all your heart and with all your soul and with all your mind. This is the great and first commandment.", explanation: "Jesus said the greatest commandment is to love God completely with heart, soul, and mind." },
+            { id: 64, text: "In the parable of the ten virgins, how many were wise?", options: ["Three", "Five", "Seven", "Ten"], correctAnswer: 1, difficulty: "medium", reference: "Matthew 25:2", category: "Parables & Teachings", verseText: "Five of them were foolish, and five were wise.", explanation: "Five virgins were wise and brought extra oil for their lamps, while five were foolish and unprepared." },
+            { id: 65, text: "What did Jesus say we cannot serve along with God?", options: ["Family", "Mammon (Money)", "Friends", "Work"], correctAnswer: 1, difficulty: "easy", reference: "Matthew 6:24", category: "Parables & Teachings", verseText: "No one can serve two masters, for either he will hate the one and love the other, or he will be devoted to the one and despise the other. You cannot serve God and money.", explanation: "Jesus taught that we cannot serve both God and money, as they demand conflicting loyalties." },
+            { id: 66, text: "According to Jesus, what should we do to our enemies?", options: ["Ignore them", "Love them", "Avoid them", "Defeat them"], correctAnswer: 1, difficulty: "easy", reference: "Matthew 5:44", category: "Parables & Teachings", verseText: "But I say to you, Love your enemies and pray for those who persecute you.", explanation: "Jesus commanded His followers to love their enemies and pray for those who persecute them." },
+
+            // MIRACLES OF JESUS
+            { id: 67, text: "What was the name of the man Jesus raised from the dead after four days?", options: ["Lazarus", "Jairus", "Simon", "Nicodemus"], correctAnswer: 0, difficulty: "easy", reference: "John 11:43-44", category: "Miracles of Jesus", verseText: "When he had said these things, he cried out with a loud voice, 'Lazarus, come out.' The man who had died came out.", explanation: "Jesus raised Lazarus from the dead after he had been in the tomb for four days, demonstrating power over death." },
+            { id: 68, text: "What did Jesus calm with His words?", options: ["A riot", "A storm", "An earthquake", "A fire"], correctAnswer: 1, difficulty: "easy", reference: "Mark 4:39", category: "Miracles of Jesus", verseText: "And he awoke and rebuked the wind and said to the sea, 'Peace! Be still!' And the wind ceased, and there was a great calm.", explanation: "Jesus calmed a violent storm on the Sea of Galilee with just His words, showing His authority over nature." },
+            { id: 69, text: "How many lepers did Jesus heal, but only one returned to thank Him?", options: ["Five", "Seven", "Ten", "Twelve"], correctAnswer: 2, difficulty: "medium", reference: "Luke 17:12-17", category: "Miracles of Jesus", verseText: "Then Jesus answered, 'Were not ten cleansed? Where are the nine?'", explanation: "Jesus healed ten lepers, but only one, a Samaritan, returned to give thanks and praise God." },
+            { id: 70, text: "What did Jesus heal the man at the pool of Bethesda from?", options: ["Blindness", "Leprosy", "Paralysis", "Deafness"], correctAnswer: 2, difficulty: "medium", reference: "John 5:8", category: "Miracles of Jesus", verseText: "Jesus said to him, 'Get up, take up your bed, and walk.' And at once the man was healed.", explanation: "Jesus healed a man who had been paralyzed for 38 years at the pool of Bethesda." },
+            { id: 71, text: "What did Jesus use to heal a blind man's eyes?", options: ["Oil", "Water", "Mud and saliva", "Nothing, just words"], correctAnswer: 2, difficulty: "medium", reference: "John 9:6", category: "Miracles of Jesus", verseText: "Having said these things, he spit on the ground and made mud with the saliva. Then he anointed the man's eyes with the mud.", explanation: "Jesus made mud from His saliva and the ground to anoint a blind man's eyes, who then could see." },
+            { id: 72, text: "Whose ear did Jesus heal after it was cut off?", options: ["A Roman soldier", "The high priest's servant", "Peter", "Judas"], correctAnswer: 1, difficulty: "medium", reference: "Luke 22:50-51", category: "Miracles of Jesus", verseText: "And one of them struck the servant of the high priest and cut off his right ear. But Jesus said, 'No more of this!' And he touched his ear and healed him.", explanation: "When Peter cut off the ear of Malchus, the high priest's servant, Jesus healed it immediately." },
+            { id: 73, text: "How many fish did the disciples catch after Jesus told them where to cast their net?", options: ["100", "120", "153", "200"], correctAnswer: 2, difficulty: "hard", reference: "John 21:11", category: "Miracles of Jesus", verseText: "Simon Peter went aboard and hauled the net ashore, full of large fish, 153 of them.", explanation: "After Jesus's resurrection, He directed the disciples to cast their net, and they caught exactly 153 large fish." },
+            { id: 74, text: "What did Jesus cast out of Mary Magdalene?", options: ["Three demons", "Five demons", "Seven demons", "Ten demons"], correctAnswer: 2, difficulty: "medium", reference: "Luke 8:2", category: "Miracles of Jesus", verseText: "Mary, called Magdalene, from whom seven demons had gone out.", explanation: "Jesus cast seven demons out of Mary Magdalene, freeing her from spiritual bondage." },
+
+            // WOMEN OF THE BIBLE
+            { id: 75, text: "Who was the mother of Jesus?", options: ["Elizabeth", "Mary", "Martha", "Anna"], correctAnswer: 1, difficulty: "easy", reference: "Luke 1:30-31", category: "Women of the Bible", verseText: "And the angel said to her, 'Do not be afraid, Mary, for you have found favor with God. And behold, you will conceive in your womb and bear a son.'", explanation: "Mary was chosen by God to be the mother of Jesus, the Savior of the world." },
+            { id: 76, text: "Which woman hid Israelite spies in Jericho?", options: ["Deborah", "Rahab", "Ruth", "Esther"], correctAnswer: 1, difficulty: "medium", reference: "Joshua 2:4", category: "Women of the Bible", verseText: "But the woman had taken the two men and hidden them.", explanation: "Rahab the prostitute hid two Israelite spies in Jericho and helped them escape, saving her family when the city fell." },
+            { id: 77, text: "Who became queen of Persia and saved the Jewish people?", options: ["Vashti", "Esther", "Ruth", "Deborah"], correctAnswer: 1, difficulty: "easy", reference: "Esther 4:14", category: "Women of the Bible", verseText: "And who knows whether you have not come to the kingdom for such a time as this?", explanation: "Esther became queen of Persia and courageously interceded to save the Jewish people from genocide." },
+            { id: 78, text: "Which judge of Israel was a woman?", options: ["Miriam", "Deborah", "Hannah", "Abigail"], correctAnswer: 1, difficulty: "medium", reference: "Judges 4:4", category: "Women of the Bible", verseText: "Now Deborah, a prophetess, the wife of Lappidoth, was judging Israel at that time.", explanation: "Deborah was both a prophetess and a judge who led Israel, and she guided them to victory over their enemies." },
+            { id: 79, text: "What was the name of Abraham's wife?", options: ["Rachel", "Leah", "Sarah", "Rebekah"], correctAnswer: 2, difficulty: "easy", reference: "Genesis 17:15", category: "Women of the Bible", verseText: "And God said to Abraham, 'As for Sarai your wife, you shall not call her name Sarai, but Sarah shall be her name.'", explanation: "Sarah was Abraham's wife and the mother of Isaac, becoming the mother of nations as God promised." },
+            { id: 80, text: "Which woman was a seller of purple cloth in Philippi?", options: ["Priscilla", "Lydia", "Phoebe", "Dorcas"], correctAnswer: 1, difficulty: "hard", reference: "Acts 16:14", category: "Women of the Bible", verseText: "One who heard us was a woman named Lydia, from the city of Thyatira, a seller of purple goods, who was a worshiper of God.", explanation: "Lydia was a businesswoman who sold purple cloth and became one of Paul's first converts in Europe." },
+            { id: 81, text: "Who was the sister of Moses and Aaron?", options: ["Miriam", "Deborah", "Jochebed", "Zipporah"], correctAnswer: 0, difficulty: "medium", reference: "Exodus 15:20", category: "Women of the Bible", verseText: "Then Miriam the prophetess, the sister of Aaron, took a tambourine in her hand.", explanation: "Miriam was the sister of Moses and Aaron, and she was a prophetess who led the women in praise after crossing the Red Sea." },
+            { id: 82, text: "Which woman said, 'Where you go I will go, and where you stay I will stay'?", options: ["Naomi", "Ruth", "Orpah", "Esther"], correctAnswer: 1, difficulty: "easy", reference: "Ruth 1:16", category: "Women of the Bible", verseText: "But Ruth said, 'Do not urge me to leave you or to return from following you. For where you go I will go, and where you lodge I will lodge.'", explanation: "Ruth made this declaration of loyalty to her mother-in-law Naomi, choosing to follow her and her God." },
+
+            // KINGS & RULERS
+            { id: 83, text: "Who was the first king of Israel?", options: ["David", "Solomon", "Saul", "Samuel"], correctAnswer: 2, difficulty: "easy", reference: "1 Samuel 10:24", category: "Kings & Rulers", verseText: "And Samuel said to all the people, 'Do you see him whom the LORD has chosen? There is none like him among all the people.'", explanation: "Saul was anointed as the first king of Israel, though he later disobeyed God and was rejected." },
+            { id: 84, text: "Which king wrote most of the Psalms?", options: ["Solomon", "David", "Hezekiah", "Josiah"], correctAnswer: 1, difficulty: "easy", reference: "Various Psalms", category: "Kings & Rulers", verseText: "Many psalms are inscribed 'A Psalm of David'", explanation: "King David wrote approximately 73 of the 150 psalms in the Book of Psalms." },
+            { id: 85, text: "What was King Solomon famous for?", options: ["His strength", "His wisdom", "His armies", "His wealth alone"], correctAnswer: 1, difficulty: "easy", reference: "1 Kings 3:12", category: "Kings & Rulers", verseText: "Behold, I give you a wise and discerning mind, so that none like you has been before you and none like you shall arise after you.", explanation: "God granted Solomon exceptional wisdom when he asked for an understanding heart to govern God's people." },
+            { id: 86, text: "Which wicked queen was thrown from a window?", options: ["Athaliah", "Jezebel", "Herodias", "Vashti"], correctAnswer: 1, difficulty: "medium", reference: "2 Kings 9:33", category: "Kings & Rulers", verseText: "He said, 'Throw her down.' So they threw her down. And some of her blood spattered on the wall.", explanation: "Jezebel, the wicked queen who promoted Baal worship, was thrown from a window and killed as prophesied." },
+            { id: 87, text: "How old was King Josiah when he began to reign?", options: ["Six", "Eight", "Twelve", "Sixteen"], correctAnswer: 1, difficulty: "hard", reference: "2 Kings 22:1", category: "Kings & Rulers", verseText: "Josiah was eight years old when he began to reign, and he reigned thirty-one years in Jerusalem.", explanation: "Josiah became king at only eight years old and later led major religious reforms in Judah." },
+            { id: 88, text: "Which king of Babylon conquered Jerusalem?", options: ["Cyrus", "Darius", "Nebuchadnezzar", "Belshazzar"], correctAnswer: 2, difficulty: "medium", reference: "2 Kings 25:8-9", category: "Kings & Rulers", verseText: "In the fifth month, on the seventh day of the month... Nebuzaradan, the captain of the bodyguard, a servant of the king of Babylon, came to Jerusalem.", explanation: "Nebuchadnezzar, king of Babylon, conquered Jerusalem and destroyed the temple, taking the Jews into exile." },
+            { id: 89, text: "What did King Nebuchadnezzar see in his dream?", options: ["A tree", "A statue", "A beast", "A wheel"], correctAnswer: 1, difficulty: "medium", reference: "Daniel 2:31", category: "Kings & Rulers", verseText: "You saw, O king, and behold, a great image. This image, mighty and of exceeding brightness, stood before you, and its appearance was frightening.", explanation: "Nebuchadnezzar dreamed of a great statue made of different metals, which Daniel interpreted as future kingdoms." },
+            { id: 90, text: "Which king allowed the Jews to return and rebuild Jerusalem?", options: ["Nebuchadnezzar", "Cyrus", "Xerxes", "Darius"], correctAnswer: 1, difficulty: "medium", reference: "Ezra 1:1-2", category: "Kings & Rulers", verseText: "Thus says Cyrus king of Persia: The LORD, the God of heaven, has given me all the kingdoms of the earth, and he has charged me to build him a house at Jerusalem.", explanation: "King Cyrus of Persia issued a decree allowing the Jews to return from exile and rebuild the temple in Jerusalem." },
+
+            // BIBLICAL GEOGRAPHY
+            { id: 91, text: "On which mountain did Moses receive the Ten Commandments?", options: ["Mount Ararat", "Mount Sinai", "Mount Carmel", "Mount Hermon"], correctAnswer: 1, difficulty: "easy", reference: "Exodus 19:20", category: "Biblical Geography", verseText: "The LORD came down on Mount Sinai, to the top of the mountain.", explanation: "God descended on Mount Sinai to give Moses the Ten Commandments and establish His covenant with Israel." },
+            { id: 92, text: "In which garden did Jesus pray before His arrest?", options: ["Garden of Eden", "Garden of Gethsemane", "Garden Tomb", "Hanging Gardens"], correctAnswer: 1, difficulty: "easy", reference: "Matthew 26:36", category: "Biblical Geography", verseText: "Then Jesus went with them to a place called Gethsemane.", explanation: "Jesus prayed in the Garden of Gethsemane on the Mount of Olives the night before His crucifixion." },
+            { id: 93, text: "Where was Paul traveling when he was blinded by a great light?", options: ["Jerusalem", "Damascus", "Antioch", "Rome"], correctAnswer: 1, difficulty: "medium", reference: "Acts 9:3", category: "Biblical Geography", verseText: "Now as he went on his way, he approached Damascus, and suddenly a light from heaven shone around him.", explanation: "Paul (then Saul) was traveling to Damascus to persecute Christians when Jesus appeared to him in a blinding light." },
+            { id: 94, text: "What sea did the Israelites cross when leaving Egypt?", options: ["Mediterranean Sea", "Dead Sea", "Red Sea", "Sea of Galilee"], correctAnswer: 2, difficulty: "easy", reference: "Exodus 14:21-22", category: "Biblical Geography", verseText: "Then Moses stretched out his hand over the sea, and the LORD drove the sea back... and the people of Israel went into the midst of the sea on dry ground.", explanation: "God parted the Red Sea, allowing the Israelites to escape Egypt while Pharaoh's army was destroyed." },
+            { id: 95, text: "Where did Jesus perform His first miracle?", options: ["Jerusalem", "Nazareth", "Cana", "Capernaum"], correctAnswer: 2, difficulty: "medium", reference: "John 2:1", category: "Biblical Geography", verseText: "On the third day there was a wedding at Cana in Galilee.", explanation: "Jesus performed His first miracle at a wedding in Cana of Galilee by turning water into wine." },
+            { id: 96, text: "On which mountain was Jesus transfigured?", options: ["Mount Sinai", "Mount Tabor", "Mount of Olives", "A high mountain (not named)"], correctAnswer: 3, difficulty: "hard", reference: "Matthew 17:1", category: "Biblical Geography", verseText: "And after six days Jesus took with him Peter and James, and John his brother, and led them up a high mountain by themselves.", explanation: "The Bible doesn't specifically name which mountain, though tradition suggests Mount Tabor or Mount Hermon." },
+            { id: 97, text: "Where was Jesus crucified?", options: ["Mount of Olives", "Golgotha", "Mount Zion", "Bethany"], correctAnswer: 1, difficulty: "easy", reference: "John 19:17", category: "Biblical Geography", verseText: "And he went out, bearing his own cross, to the place called The Place of a Skull, which in Aramaic is called Golgotha.", explanation: "Jesus was crucified at Golgotha, also called The Place of the Skull, outside Jerusalem." },
+            { id: 98, text: "What river was Naaman told to wash in to cure his leprosy?", options: ["Nile", "Euphrates", "Jordan", "Tigris"], correctAnswer: 2, difficulty: "medium", reference: "2 Kings 5:10", category: "Biblical Geography", verseText: "Go and wash in the Jordan seven times, and your flesh shall be restored, and you shall be clean.", explanation: "Elisha told Naaman to wash seven times in the Jordan River to be healed of his leprosy." },
+
+            // OLD TESTAMENT PROPHETS
+            { id: 99, text: "Which prophet was taken up to heaven in a whirlwind?", options: ["Elijah", "Elisha", "Isaiah", "Jeremiah"], correctAnswer: 0, difficulty: "easy", reference: "2 Kings 2:11", category: "Old Testament Prophets", verseText: "And as they still went on and talked, behold, chariots of fire and horses of fire separated the two of them. And Elijah went up by a whirlwind into heaven.", explanation: "Elijah was taken directly to heaven in a whirlwind, accompanied by chariots and horses of fire." },
+            { id: 100, text: "Which prophet saw a vision of dry bones coming to life?", options: ["Isaiah", "Jeremiah", "Ezekiel", "Daniel"], correctAnswer: 2, difficulty: "medium", reference: "Ezekiel 37:1-2", category: "Old Testament Prophets", verseText: "The hand of the LORD was upon me... and set me down in the middle of the valley; it was full of bones.", explanation: "Ezekiel prophesied to dry bones which came together and came to life, symbolizing Israel's restoration." },
+            { id: 101, text: "Which prophet confronted King Ahab about killing Naboth?", options: ["Elijah", "Nathan", "Samuel", "Isaiah"], correctAnswer: 0, difficulty: "medium", reference: "1 Kings 21:19", category: "Old Testament Prophets", verseText: "And you shall say to him, 'Thus says the LORD: Have you killed and also taken possession?'", explanation: "Elijah confronted King Ahab after Jezebel arranged Naboth's murder so Ahab could take his vineyard." },
+            { id: 102, text: "Which prophet lived in a time of exile in Babylon?", options: ["Isaiah", "Jeremiah", "Ezekiel", "Amos"], correctAnswer: 2, difficulty: "medium", reference: "Ezekiel 1:1", category: "Old Testament Prophets", verseText: "In the thirtieth year, in the fourth month, on the fifth day of the month, as I was among the exiles by the Chebar canal.", explanation: "Ezekiel prophesied to the Jewish exiles in Babylon, bringing messages of judgment and restoration." },
+            { id: 103, text: "Who was the prophet that anointed David as king?", options: ["Nathan", "Samuel", "Elijah", "Isaiah"], correctAnswer: 1, difficulty: "easy", reference: "1 Samuel 16:13", category: "Old Testament Prophets", verseText: "Then Samuel took the horn of oil and anointed him in the midst of his brothers.", explanation: "The prophet Samuel anointed David as king while he was still a young shepherd boy." },
+            { id: 104, text: "Which prophet was told to marry a prostitute as a symbol?", options: ["Hosea", "Amos", "Micah", "Joel"], correctAnswer: 0, difficulty: "medium", reference: "Hosea 1:2", category: "Old Testament Prophets", verseText: "When the LORD first spoke through Hosea, the LORD said to Hosea, 'Go, take to yourself a wife of whoredom.'", explanation: "God told Hosea to marry Gomer, a prostitute, to symbolize Israel's unfaithfulness to God." },
+            { id: 105, text: "Which prophet saw the Lord seated on a throne in the temple?", options: ["Ezekiel", "Isaiah", "Jeremiah", "Daniel"], correctAnswer: 1, difficulty: "medium", reference: "Isaiah 6:1", category: "Old Testament Prophets", verseText: "In the year that King Uzziah died I saw the Lord sitting upon a throne, high and lifted up; and the train of his robe filled the temple.", explanation: "Isaiah had a vision of God's holiness and glory in the temple, which led to his calling as a prophet." },
+            { id: 106, text: "Which prophet was called while still in his mother's womb?", options: ["Isaiah", "Jeremiah", "Ezekiel", "Samuel"], correctAnswer: 1, difficulty: "hard", reference: "Jeremiah 1:5", category: "Old Testament Prophets", verseText: "Before I formed you in the womb I knew you, and before you were born I consecrated you; I appointed you a prophet to the nations.", explanation: "God told Jeremiah that He had appointed him as a prophet even before he was born." },
         ];
 
+        // LocalStorage utility functions
+        const STORAGE_KEY = 'bibleQuestData';
+
+        const getDefaultStats = () => ({
+            totalQuestionsAnswered: 0,
+            totalCorrectAnswers: 0,
+            overallAccuracy: 0,
+            bestStreak: 0,
+            currentStreak: 0,
+            gamesPlayed: 0,
+            totalPoints: 0,
+            lastPlayedDate: null,
+            questionHistory: [],
+            achievements: []
+        });
+
+        const loadStats = () => {
+            try {
+                const data = localStorage.getItem(STORAGE_KEY);
+                if (data) {
+                    return JSON.parse(data);
+                }
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+            return getDefaultStats();
+        };
+
+        const saveStats = (stats) => {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(stats));
+            } catch (error) {
+                console.error('Error saving stats:', error);
+            }
+        };
+
         function BibleQuestApp() {
-            const [gameState, setGameState] = useState('welcome'); // welcome, playing, feedback, results
+            const [gameState, setGameState] = useState('welcome'); // welcome, playing, feedback, results, statistics
             const [difficulty, setDifficulty] = useState(null);
             const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
             const [score, setScore] = useState(0);
             const [selectedAnswer, setSelectedAnswer] = useState(null);
             const [questions, setQuestions] = useState([]);
             const [answeredQuestions, setAnsweredQuestions] = useState([]);
+            const [stats, setStats] = useState(getDefaultStats());
+            const [currentStreak, setCurrentStreak] = useState(0);
+
+            // Load stats on mount
+            useEffect(() => {
+                const loadedStats = loadStats();
+                setStats(loadedStats);
+                setCurrentStreak(loadedStats.currentStreak || 0);
+            }, []);
 
             const startGame = () => {
                 if (!difficulty) return;
@@ -636,6 +743,9 @@
 
                 if (isCorrect) {
                     setScore(score + 1);
+                    setCurrentStreak(currentStreak + 1);
+                } else {
+                    setCurrentStreak(0);
                 }
 
                 setAnsweredQuestions([...answeredQuestions, {
@@ -657,8 +767,29 @@
                     setCurrentQuestionIndex(currentQuestionIndex + 1);
                     setGameState('playing');
                 } else {
+                    // Game complete - update stats
+                    updateGameStats();
                     setGameState('results');
                 }
+            };
+
+            const updateGameStats = () => {
+                const newStats = {
+                    ...stats,
+                    totalQuestionsAnswered: stats.totalQuestionsAnswered + questions.length,
+                    totalCorrectAnswers: stats.totalCorrectAnswers + score,
+                    gamesPlayed: stats.gamesPlayed + 1,
+                    totalPoints: stats.totalPoints + (score * 10),
+                    bestStreak: Math.max(stats.bestStreak, currentStreak),
+                    currentStreak: currentStreak,
+                    lastPlayedDate: new Date().toISOString(),
+                    questionHistory: [...stats.questionHistory, ...questions.map(q => q.id)].slice(-100) // Keep last 100
+                };
+
+                newStats.overallAccuracy = Math.round((newStats.totalCorrectAnswers / newStats.totalQuestionsAnswered) * 100);
+
+                setStats(newStats);
+                saveStats(newStats);
             };
 
             const restartGame = () => {
@@ -669,6 +800,25 @@
                 setSelectedAnswer(null);
                 setQuestions([]);
                 setAnsweredQuestions([]);
+            };
+
+            const viewStatistics = () => {
+                setGameState('statistics');
+            };
+
+            const reviewMistakes = () => {
+                const mistakes = answeredQuestions
+                    .filter(aq => !aq.isCorrect)
+                    .map(aq => aq.question);
+
+                if (mistakes.length > 0) {
+                    setQuestions(mistakes);
+                    setCurrentQuestionIndex(0);
+                    setScore(0);
+                    setAnsweredQuestions([]);
+                    setSelectedAnswer(null);
+                    setGameState('playing');
+                }
             };
 
             const currentQuestion = questions[currentQuestionIndex];
@@ -687,6 +837,8 @@
                                 difficulty={difficulty}
                                 setDifficulty={setDifficulty}
                                 startGame={startGame}
+                                viewStatistics={viewStatistics}
+                                stats={stats}
                             />
                         )}
 
@@ -696,6 +848,7 @@
                                 questionNumber={currentQuestionIndex + 1}
                                 totalQuestions={questions.length}
                                 score={score}
+                                currentStreak={currentStreak}
                                 selectedAnswer={selectedAnswer}
                                 handleAnswerClick={handleAnswerClick}
                             />
@@ -706,6 +859,7 @@
                                 isCorrect={lastAnswer.isCorrect}
                                 question={lastAnswer.question}
                                 selectedAnswer={lastAnswer.selectedAnswer}
+                                currentStreak={currentStreak}
                                 nextQuestion={nextQuestion}
                             />
                         )}
@@ -716,7 +870,17 @@
                                 totalQuestions={questions.length}
                                 difficulty={difficulty}
                                 answeredQuestions={answeredQuestions}
+                                stats={stats}
+                                currentStreak={currentStreak}
                                 restartGame={restartGame}
+                                reviewMistakes={reviewMistakes}
+                            />
+                        )}
+
+                        {gameState === 'statistics' && (
+                            <StatisticsScreen
+                                stats={stats}
+                                goBack={() => setGameState('welcome')}
                             />
                         )}
                     </div>
@@ -724,7 +888,7 @@
             );
         }
 
-        function WelcomeScreen({ difficulty, setDifficulty, startGame }) {
+        function WelcomeScreen({ difficulty, setDifficulty, startGame, viewStatistics, stats }) {
             return (
                 <div className="welcome-screen">
                     <h2>Welcome to Bible Quest!</h2>
@@ -732,6 +896,12 @@
                         Test your knowledge of the Bible with engaging trivia questions.
                         Choose your difficulty level and begin your journey through Scripture.
                     </p>
+
+                    {stats.gamesPlayed > 0 && (
+                        <div style={{marginBottom: '20px', padding: '15px', background: 'var(--cream)', borderRadius: '10px'}}>
+                            <strong>Your Progress:</strong> {stats.gamesPlayed} games played | {stats.overallAccuracy}% accuracy | Best streak: {stats.bestStreak}
+                        </div>
+                    )}
 
                     <div className="difficulty-selector">
                         <button
@@ -764,15 +934,30 @@
                     >
                         Start Quest
                     </button>
+
+                    {stats.gamesPlayed > 0 && (
+                        <button
+                            className="btn-secondary"
+                            onClick={viewStatistics}
+                            style={{marginTop: '10px'}}
+                        >
+                            View Statistics
+                        </button>
+                    )}
                 </div>
             );
         }
 
-        function QuestionScreen({ question, questionNumber, totalQuestions, score, selectedAnswer, handleAnswerClick }) {
+        function QuestionScreen({ question, questionNumber, totalQuestions, score, currentStreak, selectedAnswer, handleAnswerClick }) {
             return (
                 <div className="question-screen">
                     <div className="score-progress">
                         <div className="score">Score: {score}/{totalQuestions}</div>
+                        {currentStreak >= 3 && (
+                            <div style={{color: 'var(--gold)', fontWeight: 'bold', fontSize: '1.2em'}}>
+                                🔥 Streak: {currentStreak}
+                            </div>
+                        )}
                         <div className="progress">Question {questionNumber} of {totalQuestions}</div>
                     </div>
 
@@ -812,13 +997,19 @@
             );
         }
 
-        function FeedbackScreen({ isCorrect, question, selectedAnswer, nextQuestion }) {
+        function FeedbackScreen({ isCorrect, question, selectedAnswer, currentStreak, nextQuestion }) {
             return (
                 <div className="feedback-screen">
                     <div className="feedback-icon">{isCorrect ? '✅' : '❌'}</div>
                     <div className={`feedback-message ${isCorrect ? 'correct' : 'incorrect'}`}>
                         {isCorrect ? 'Correct!' : 'Not Quite!'}
                     </div>
+
+                    {isCorrect && currentStreak >= 3 && (
+                        <div style={{fontSize: '1.2em', color: 'var(--gold)', fontWeight: 'bold', marginBottom: '10px'}}>
+                            🔥 {currentStreak} in a row!
+                        </div>
+                    )}
 
                     {!isCorrect && (
                         <p style={{marginBottom: '20px', fontSize: '1.1em', color: '#666'}}>
@@ -827,8 +1018,17 @@
                     )}
 
                     <div className="scripture-reference">
-                        <div className="label">Scripture Reference</div>
-                        <div className="text">{question.reference}</div>
+                        <div className="label">{question.reference}</div>
+                        {question.verseText && (
+                            <div className="text" style={{fontStyle: 'italic', marginTop: '10px'}}>
+                                "{question.verseText}"
+                            </div>
+                        )}
+                        {question.explanation && (
+                            <div style={{marginTop: '15px', color: '#555', lineHeight: '1.6'}}>
+                                {question.explanation}
+                            </div>
+                        )}
                     </div>
 
                     <button className="btn-primary" onClick={nextQuestion}>
@@ -838,8 +1038,9 @@
             );
         }
 
-        function ResultsScreen({ score, totalQuestions, difficulty, answeredQuestions, restartGame }) {
+        function ResultsScreen({ score, totalQuestions, difficulty, answeredQuestions, stats, currentStreak, restartGame, reviewMistakes }) {
             const percentage = Math.round((score / totalQuestions) * 100);
+            const mistakesCount = answeredQuestions.filter(aq => !aq.isCorrect).length;
 
             let performanceMessage = '';
             if (percentage === 100) {
@@ -885,11 +1086,80 @@
                             <span className="stat-label">Accuracy</span>
                             <span className="stat-value">{percentage}%</span>
                         </div>
+                        {currentStreak >= 3 && (
+                            <div className="stat-row">
+                                <span className="stat-label">Best Streak This Game</span>
+                                <span className="stat-value">🔥 {currentStreak}</span>
+                            </div>
+                        )}
+                        <div className="stat-row">
+                            <span className="stat-label">Lifetime Accuracy</span>
+                            <span className="stat-value">{stats.overallAccuracy}%</span>
+                        </div>
+                        <div className="stat-row">
+                            <span className="stat-label">All-Time Best Streak</span>
+                            <span className="stat-value">{stats.bestStreak}</span>
+                        </div>
                     </div>
 
                     <div>
                         <button className="btn-primary" onClick={restartGame}>
                             Play Again
+                        </button>
+                        {mistakesCount > 0 && (
+                            <button className="btn-secondary" onClick={reviewMistakes}>
+                                Review {mistakesCount} Mistake{mistakesCount !== 1 ? 's' : ''}
+                            </button>
+                        )}
+                    </div>
+                </div>
+            );
+        }
+
+        function StatisticsScreen({ stats, goBack }) {
+            return (
+                <div className="results-screen">
+                    <h2>Your Statistics</h2>
+
+                    <div className="score-breakdown" style={{marginTop: '30px'}}>
+                        <h3>Overall Progress</h3>
+                        <div className="stat-row">
+                            <span className="stat-label">Games Played</span>
+                            <span className="stat-value">{stats.gamesPlayed}</span>
+                        </div>
+                        <div className="stat-row">
+                            <span className="stat-label">Total Questions Answered</span>
+                            <span className="stat-value">{stats.totalQuestionsAnswered}</span>
+                        </div>
+                        <div className="stat-row">
+                            <span className="stat-label">Correct Answers</span>
+                            <span className="stat-value">{stats.totalCorrectAnswers}</span>
+                        </div>
+                        <div className="stat-row">
+                            <span className="stat-label">Overall Accuracy</span>
+                            <span className="stat-value">{stats.overallAccuracy}%</span>
+                        </div>
+                        <div className="stat-row">
+                            <span className="stat-label">Best Streak</span>
+                            <span className="stat-value">🔥 {stats.bestStreak}</span>
+                        </div>
+                        <div className="stat-row">
+                            <span className="stat-label">Total Points Earned</span>
+                            <span className="stat-value">{stats.totalPoints}</span>
+                        </div>
+                        {stats.lastPlayedDate && (
+                            <div className="stat-row">
+                                <span className="stat-label">Last Played</span>
+                                <span className="stat-value">
+                                    {new Date(stats.lastPlayedDate).toLocaleDateString()}
+                                </span>
+                            </div>
+                        )}
+                    </div>
+
+                    <div style={{marginTop: '30px'}}>
+                        <button className="btn-primary" onClick={goBack}>
+                            Back to Home
                         </button>
                     </div>
                 </div>
